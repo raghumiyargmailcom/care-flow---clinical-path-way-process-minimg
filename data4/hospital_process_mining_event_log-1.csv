@@ -1,0 +1,954 @@
+case_id,activity,timestamp,department,resource
+HOSP_0001,Patient Registration,2026-03-23 08:54:00,Front Desk,Registration Clerk
+HOSP_0001,Initial Triage,2026-03-23 09:14:00,Emergency/Triage,Triage Nurse
+HOSP_0001,Doctor Consultation,2026-03-23 09:19:00,Outpatient,Doctor
+HOSP_0001,Treatment/Prescription,2026-03-23 09:40:00,Outpatient,Doctor
+HOSP_0001,Payment Completed,2026-03-23 09:56:00,Billing,Billing Clerk
+HOSP_0001,Patient Discharged,2026-03-23 10:00:00,Outpatient,Nurse
+HOSP_0002,Patient Registration,2026-01-12 10:43:00,Front Desk,Registration Clerk
+HOSP_0002,Initial Triage,2026-01-12 11:00:00,Emergency/Triage,Triage Nurse
+HOSP_0002,Doctor Consultation,2026-01-12 11:21:00,Outpatient,Doctor
+HOSP_0002,Treatment/Prescription,2026-01-12 11:32:00,Outpatient,Doctor
+HOSP_0002,Payment Completed,2026-01-12 11:35:00,Billing,Billing Clerk
+HOSP_0002,Patient Discharged,2026-01-12 11:43:00,Outpatient,Nurse
+HOSP_0003,Patient Registration,2026-02-24 12:48:00,Front Desk,Registration Clerk
+HOSP_0003,Initial Triage,2026-02-24 13:02:00,Emergency/Triage,Triage Nurse
+HOSP_0003,Doctor Consultation,2026-02-24 13:16:00,Outpatient,Doctor
+HOSP_0003,Treatment/Prescription,2026-02-24 13:38:00,Outpatient,Doctor
+HOSP_0003,Payment Completed,2026-02-24 13:49:00,Billing,Billing Clerk
+HOSP_0003,Patient Discharged,2026-02-24 13:53:00,Outpatient,Nurse
+HOSP_0004,Patient Registration,2026-03-10 09:19:00,Front Desk,Registration Clerk
+HOSP_0004,Initial Triage,2026-03-10 09:24:00,Emergency/Triage,Triage Nurse
+HOSP_0004,Doctor Consultation,2026-03-10 09:34:00,Outpatient,Doctor
+HOSP_0004,Repeat Doctor Consultation,2026-03-10 09:40:00,Outpatient,Doctor
+HOSP_0004,Lab Test Ordered,2026-03-10 09:55:00,Outpatient,Doctor
+HOSP_0004,Sample Collected,2026-03-10 10:06:00,Laboratory,Lab Technician
+HOSP_0004,Lab Results Available,2026-03-10 10:23:00,Laboratory,Lab Technician
+HOSP_0004,Doctor Reviews Results,2026-03-10 10:46:00,Outpatient,Doctor
+HOSP_0004,Admission Decision,2026-03-10 11:00:00,Outpatient/Emergency,Doctor
+HOSP_0004,Bed Assigned,2026-03-10 11:08:00,Inpatient Ward,Bed Manager
+HOSP_0004,Patient Transferred to Ward,2026-03-10 11:22:00,Inpatient Ward,Nurse
+HOSP_0004,Treatment Completed,2026-03-10 11:36:00,Inpatient Ward,Doctor
+HOSP_0004,Discharge Processed,2026-03-10 11:45:00,Discharge Desk,Discharge Clerk
+HOSP_0005,Patient Registration,2026-03-27 11:33:00,Front Desk,Registration Clerk
+HOSP_0005,Initial Triage,2026-03-27 11:37:00,Emergency/Triage,Triage Nurse
+HOSP_0005,Doctor Consultation,2026-03-27 11:47:00,Outpatient,Doctor
+HOSP_0005,Lab Test Ordered,2026-03-27 11:51:00,Outpatient,Doctor
+HOSP_0005,Sample Collected,2026-03-27 12:04:00,Laboratory,Lab Technician
+HOSP_0005,Lab Results Available,2026-03-27 12:19:00,Laboratory,Lab Technician
+HOSP_0005,Doctor Reviews Results,2026-03-27 12:30:00,Outpatient,Doctor
+HOSP_0005,Imaging Ordered,2026-03-27 12:35:00,Radiology,Doctor
+HOSP_0005,Imaging Completed,2026-03-27 12:44:00,Radiology,Radiology Technician
+HOSP_0005,Doctor Reviews Imaging,2026-03-27 13:05:00,Emergency,Doctor
+HOSP_0005,Admission Decision,2026-03-27 13:30:00,Outpatient/Emergency,Doctor
+HOSP_0005,Bed Assigned,2026-03-27 13:43:00,Inpatient Ward,Bed Manager
+HOSP_0005,Patient Transferred to Ward,2026-03-27 13:52:00,Inpatient Ward,Nurse
+HOSP_0005,Treatment Completed,2026-03-27 14:15:00,Inpatient Ward,Doctor
+HOSP_0005,Discharge Processed,2026-03-27 14:33:00,Discharge Desk,Discharge Clerk
+HOSP_0006,Patient Registration,2026-03-24 14:49:00,Front Desk,Registration Clerk
+HOSP_0006,Initial Triage,2026-03-24 15:05:00,Emergency/Triage,Triage Nurse
+HOSP_0006,Doctor Consultation,2026-03-24 15:26:00,Outpatient,Doctor
+HOSP_0006,Treatment/Prescription,2026-03-24 15:41:00,Outpatient,Doctor
+HOSP_0006,Payment Completed,2026-03-24 15:55:00,Billing,Billing Clerk
+HOSP_0006,Patient Discharged,2026-03-24 16:05:00,Outpatient,Nurse
+HOSP_0007,Patient Registration,2026-03-07 15:25:00,Front Desk,Registration Clerk
+HOSP_0007,Initial Triage,2026-03-07 15:41:00,Emergency/Triage,Triage Nurse
+HOSP_0007,Doctor Consultation,2026-03-07 16:03:00,Outpatient,Doctor
+HOSP_0007,Treatment/Prescription,2026-03-07 16:08:00,Outpatient,Doctor
+HOSP_0007,Payment Completed,2026-03-07 16:23:00,Billing,Billing Clerk
+HOSP_0007,Patient Discharged,2026-03-07 16:38:00,Outpatient,Nurse
+HOSP_0008,Patient Registration,2026-03-01 16:01:00,Front Desk,Registration Clerk
+HOSP_0008,Initial Triage,2026-03-01 16:24:00,Emergency/Triage,Triage Nurse
+HOSP_0008,Doctor Consultation,2026-03-01 16:37:00,Outpatient,Doctor
+HOSP_0008,Treatment/Prescription,2026-03-01 16:43:00,Outpatient,Doctor
+HOSP_0008,Payment Completed,2026-03-01 16:55:00,Billing,Billing Clerk
+HOSP_0008,Patient Discharged,2026-03-01 17:11:00,Outpatient,Nurse
+HOSP_0009,Patient Registration,2026-02-28 07:03:00,Front Desk,Registration Clerk
+HOSP_0009,Initial Triage,2026-02-28 07:10:00,Emergency/Triage,Triage Nurse
+HOSP_0009,Doctor Consultation,2026-02-28 07:24:00,Outpatient,Doctor
+HOSP_0009,Lab Test Ordered,2026-02-28 07:32:00,Outpatient,Doctor
+HOSP_0009,Sample Collected,2026-02-28 07:52:00,Laboratory,Lab Technician
+HOSP_0009,Lab Results Available,2026-02-28 08:11:00,Laboratory,Lab Technician
+HOSP_0009,Doctor Reviews Results,2026-02-28 08:14:00,Outpatient,Doctor
+HOSP_0009,Admission Decision,2026-02-28 08:36:00,Outpatient/Emergency,Doctor
+HOSP_0009,Bed Assigned,2026-02-28 08:49:00,Inpatient Ward,Bed Manager
+HOSP_0009,Patient Transferred to Ward,2026-02-28 09:07:00,Inpatient Ward,Nurse
+HOSP_0009,Treatment Completed,2026-02-28 09:10:00,Inpatient Ward,Doctor
+HOSP_0009,Discharge Processed,2026-02-28 09:16:00,Discharge Desk,Discharge Clerk
+HOSP_0010,Patient Registration,2026-02-09 11:05:00,Front Desk,Registration Clerk
+HOSP_0010,Initial Triage,2026-02-09 11:25:00,Emergency/Triage,Triage Nurse
+HOSP_0010,Doctor Consultation,2026-02-09 11:32:00,Outpatient,Doctor
+HOSP_0010,Treatment/Prescription,2026-02-09 11:39:00,Outpatient,Doctor
+HOSP_0010,Payment Completed,2026-02-09 12:03:00,Billing,Billing Clerk
+HOSP_0010,Patient Discharged,2026-02-09 12:21:00,Outpatient,Nurse
+HOSP_0011,Patient Registration,2026-01-22 11:31:00,Front Desk,Registration Clerk
+HOSP_0011,Initial Triage,2026-01-22 11:48:00,Emergency/Triage,Triage Nurse
+HOSP_0011,Doctor Consultation,2026-01-22 11:54:00,Outpatient,Doctor
+HOSP_0011,Lab Test Ordered,2026-01-22 12:04:00,Outpatient,Doctor
+HOSP_0011,Sample Collected,2026-01-22 12:14:00,Laboratory,Lab Technician
+HOSP_0011,Lab Results Available,2026-01-22 12:19:00,Laboratory,Lab Technician
+HOSP_0011,Doctor Reviews Results,2026-01-22 12:32:00,Outpatient,Doctor
+HOSP_0011,Treatment/Prescription,2026-01-22 12:35:00,Outpatient,Doctor
+HOSP_0011,Payment Completed,2026-01-22 12:56:00,Billing,Billing Clerk
+HOSP_0011,Patient Discharged,2026-01-22 13:16:00,Outpatient,Nurse
+HOSP_0012,Patient Registration,2026-03-17 10:45:00,Front Desk,Registration Clerk
+HOSP_0012,Initial Triage,2026-03-17 10:58:00,Emergency/Triage,Triage Nurse
+HOSP_0012,Doctor Consultation,2026-03-17 11:03:00,Outpatient,Doctor
+HOSP_0012,Treatment/Prescription,2026-03-17 11:22:00,Outpatient,Doctor
+HOSP_0012,Payment Completed,2026-03-17 11:32:00,Billing,Billing Clerk
+HOSP_0012,Patient Discharged,2026-03-17 11:43:00,Outpatient,Nurse
+HOSP_0013,Patient Registration,2026-03-04 10:53:00,Front Desk,Registration Clerk
+HOSP_0013,Initial Triage,2026-03-04 11:09:00,Emergency/Triage,Triage Nurse
+HOSP_0013,Doctor Consultation,2026-03-04 11:25:00,Outpatient,Doctor
+HOSP_0013,Repeat Doctor Consultation,2026-03-04 11:42:00,Outpatient,Doctor
+HOSP_0013,Lab Test Ordered,2026-03-04 11:46:00,Outpatient,Doctor
+HOSP_0013,Sample Collected,2026-03-04 12:10:00,Laboratory,Lab Technician
+HOSP_0013,Lab Results Available,2026-03-04 12:33:00,Laboratory,Lab Technician
+HOSP_0013,Doctor Reviews Results,2026-03-04 12:56:00,Outpatient,Doctor
+HOSP_0013,Treatment/Prescription,2026-03-04 13:02:00,Outpatient,Doctor
+HOSP_0013,Payment Completed,2026-03-04 13:06:00,Billing,Billing Clerk
+HOSP_0013,Patient Discharged,2026-03-04 13:21:00,Outpatient,Nurse
+HOSP_0014,Patient Registration,2026-02-13 20:39:00,Front Desk,Registration Clerk
+HOSP_0014,Initial Triage,2026-02-13 20:59:00,Emergency/Triage,Triage Nurse
+HOSP_0014,Doctor Consultation,2026-02-13 21:05:00,Outpatient,Doctor
+HOSP_0014,Lab Test Ordered,2026-02-13 21:09:00,Outpatient,Doctor
+HOSP_0014,Sample Collected,2026-02-13 21:32:00,Laboratory,Lab Technician
+HOSP_0014,Lab Results Available,2026-02-13 21:52:00,Laboratory,Lab Technician
+HOSP_0014,Doctor Reviews Results,2026-02-13 21:55:00,Outpatient,Doctor
+HOSP_0014,Admission Decision,2026-02-13 22:00:00,Outpatient/Emergency,Doctor
+HOSP_0014,Bed Assigned,2026-02-13 22:10:00,Inpatient Ward,Bed Manager
+HOSP_0014,Patient Transferred to Ward,2026-02-13 22:18:00,Inpatient Ward,Nurse
+HOSP_0014,Treatment Completed,2026-02-13 22:34:00,Inpatient Ward,Doctor
+HOSP_0014,Discharge Processed,2026-02-13 22:52:00,Discharge Desk,Discharge Clerk
+HOSP_0015,Patient Registration,2026-01-28 13:50:00,Front Desk,Registration Clerk
+HOSP_0015,Initial Triage,2026-01-28 14:08:00,Emergency/Triage,Triage Nurse
+HOSP_0015,Doctor Consultation,2026-01-28 14:15:00,Outpatient,Doctor
+HOSP_0015,Lab Test Ordered,2026-01-28 14:24:00,Outpatient,Doctor
+HOSP_0015,Sample Collected,2026-01-28 14:36:00,Laboratory,Lab Technician
+HOSP_0015,Lab Results Available,2026-01-28 14:45:00,Laboratory,Lab Technician
+HOSP_0015,Doctor Reviews Results,2026-01-28 14:49:00,Outpatient,Doctor
+HOSP_0015,Admission Decision,2026-01-28 15:10:00,Outpatient/Emergency,Doctor
+HOSP_0015,Bed Assigned,2026-01-28 15:30:00,Inpatient Ward,Bed Manager
+HOSP_0015,Patient Transferred to Ward,2026-01-28 15:34:00,Inpatient Ward,Nurse
+HOSP_0015,Treatment Completed,2026-01-28 15:47:00,Inpatient Ward,Doctor
+HOSP_0015,Discharge Processed,2026-01-28 15:51:00,Discharge Desk,Discharge Clerk
+HOSP_0016,Patient Registration,2026-03-16 15:08:00,Front Desk,Registration Clerk
+HOSP_0016,Initial Triage,2026-03-16 15:29:00,Emergency/Triage,Triage Nurse
+HOSP_0016,Doctor Consultation,2026-03-16 15:39:00,Outpatient,Doctor
+HOSP_0016,Lab Test Ordered,2026-03-16 16:00:00,Outpatient,Doctor
+HOSP_0016,Sample Collected,2026-03-16 16:22:00,Laboratory,Lab Technician
+HOSP_0016,Lab Results Available,2026-03-16 16:26:00,Laboratory,Lab Technician
+HOSP_0016,Doctor Reviews Results,2026-03-16 16:48:00,Outpatient,Doctor
+HOSP_0016,Treatment/Prescription,2026-03-16 16:53:00,Outpatient,Doctor
+HOSP_0016,Payment Completed,2026-03-16 17:09:00,Billing,Billing Clerk
+HOSP_0016,Patient Discharged,2026-03-16 17:33:00,Outpatient,Nurse
+HOSP_0017,Patient Registration,2026-03-14 15:55:00,Front Desk,Registration Clerk
+HOSP_0017,Initial Triage,2026-03-14 16:19:00,Emergency/Triage,Triage Nurse
+HOSP_0017,Doctor Consultation,2026-03-14 16:42:00,Outpatient,Doctor
+HOSP_0017,Treatment/Prescription,2026-03-14 16:54:00,Outpatient,Doctor
+HOSP_0017,Payment Completed,2026-03-14 17:11:00,Billing,Billing Clerk
+HOSP_0017,Patient Discharged,2026-03-14 17:24:00,Outpatient,Nurse
+HOSP_0018,Patient Registration,2026-01-02 14:49:00,Front Desk,Registration Clerk
+HOSP_0018,Initial Triage,2026-01-02 15:09:00,Emergency/Triage,Triage Nurse
+HOSP_0018,Doctor Consultation,2026-01-02 15:34:00,Outpatient,Doctor
+HOSP_0018,Lab Test Ordered,2026-01-02 15:46:00,Outpatient,Doctor
+HOSP_0018,Sample Collected,2026-01-02 16:08:00,Laboratory,Lab Technician
+HOSP_0018,Lab Results Available,2026-01-02 16:31:00,Laboratory,Lab Technician
+HOSP_0018,Doctor Reviews Results,2026-01-02 16:50:00,Outpatient,Doctor
+HOSP_0018,Imaging Ordered,2026-01-02 16:53:00,Radiology,Doctor
+HOSP_0018,Imaging Completed,2026-01-02 17:17:00,Radiology,Radiology Technician
+HOSP_0018,Doctor Reviews Imaging,2026-01-02 17:37:00,Emergency,Doctor
+HOSP_0018,Treatment/Prescription,2026-01-02 17:49:00,Outpatient,Doctor
+HOSP_0018,Payment Completed,2026-01-02 18:13:00,Billing,Billing Clerk
+HOSP_0018,Patient Discharged,2026-01-02 18:19:00,Outpatient,Nurse
+HOSP_0019,Patient Registration,2026-02-03 08:58:00,Front Desk,Registration Clerk
+HOSP_0019,Initial Triage,2026-02-03 09:09:00,Emergency/Triage,Triage Nurse
+HOSP_0019,Doctor Consultation,2026-02-03 09:13:00,Outpatient,Doctor
+HOSP_0019,Lab Test Ordered,2026-02-03 09:18:00,Outpatient,Doctor
+HOSP_0019,Sample Collected,2026-02-03 09:41:00,Laboratory,Lab Technician
+HOSP_0019,Lab Results Available,2026-02-03 09:57:00,Laboratory,Lab Technician
+HOSP_0019,Doctor Reviews Results,2026-02-03 10:08:00,Outpatient,Doctor
+HOSP_0019,Admission Decision,2026-02-03 10:12:00,Outpatient/Emergency,Doctor
+HOSP_0019,Bed Assigned,2026-02-03 10:15:00,Inpatient Ward,Bed Manager
+HOSP_0019,Patient Transferred to Ward,2026-02-03 10:28:00,Inpatient Ward,Nurse
+HOSP_0019,Treatment Completed,2026-02-03 10:35:00,Inpatient Ward,Doctor
+HOSP_0019,Discharge Processed,2026-02-03 10:58:00,Discharge Desk,Discharge Clerk
+HOSP_0020,Patient Registration,2026-01-21 19:39:00,Front Desk,Registration Clerk
+HOSP_0020,Initial Triage,2026-01-21 20:00:00,Emergency/Triage,Triage Nurse
+HOSP_0020,Doctor Consultation,2026-01-21 20:20:00,Outpatient,Doctor
+HOSP_0020,Lab Test Ordered,2026-01-21 20:27:00,Outpatient,Doctor
+HOSP_0020,Sample Collected,2026-01-21 20:43:00,Laboratory,Lab Technician
+HOSP_0020,Lab Results Available,2026-01-21 20:50:00,Laboratory,Lab Technician
+HOSP_0020,Doctor Reviews Results,2026-01-21 20:54:00,Outpatient,Doctor
+HOSP_0020,Treatment/Prescription,2026-01-21 21:06:00,Outpatient,Doctor
+HOSP_0020,Payment Completed,2026-01-21 21:20:00,Billing,Billing Clerk
+HOSP_0020,Patient Discharged,2026-01-21 21:24:00,Outpatient,Nurse
+HOSP_0021,Patient Registration,2026-01-27 18:38:00,Front Desk,Registration Clerk
+HOSP_0021,Initial Triage,2026-01-27 18:48:00,Emergency/Triage,Triage Nurse
+HOSP_0021,Doctor Consultation,2026-01-27 18:56:00,Outpatient,Doctor
+HOSP_0021,Treatment/Prescription,2026-01-27 19:04:00,Outpatient,Doctor
+HOSP_0021,Payment Completed,2026-01-27 19:20:00,Billing,Billing Clerk
+HOSP_0021,Patient Discharged,2026-01-27 19:23:00,Outpatient,Nurse
+HOSP_0022,Patient Registration,2026-02-12 20:21:00,Front Desk,Registration Clerk
+HOSP_0022,Initial Triage,2026-02-12 20:38:00,Emergency/Triage,Triage Nurse
+HOSP_0022,Doctor Consultation,2026-02-12 20:52:00,Outpatient,Doctor
+HOSP_0022,Lab Test Ordered,2026-02-12 21:04:00,Outpatient,Doctor
+HOSP_0022,Sample Collected,2026-02-12 21:14:00,Laboratory,Lab Technician
+HOSP_0022,Lab Results Available,2026-02-12 21:24:00,Laboratory,Lab Technician
+HOSP_0022,Doctor Reviews Results,2026-02-12 21:27:00,Outpatient,Doctor
+HOSP_0022,Admission Decision,2026-02-12 21:51:00,Outpatient/Emergency,Doctor
+HOSP_0022,Bed Assigned,2026-02-12 22:00:00,Inpatient Ward,Bed Manager
+HOSP_0022,Patient Transferred to Ward,2026-02-12 22:15:00,Inpatient Ward,Nurse
+HOSP_0022,Treatment Completed,2026-02-12 22:28:00,Inpatient Ward,Doctor
+HOSP_0022,Discharge Processed,2026-02-12 22:39:00,Discharge Desk,Discharge Clerk
+HOSP_0023,Patient Registration,2026-02-05 12:59:00,Front Desk,Registration Clerk
+HOSP_0023,Initial Triage,2026-02-05 13:18:00,Emergency/Triage,Triage Nurse
+HOSP_0023,Doctor Consultation,2026-02-05 13:24:00,Outpatient,Doctor
+HOSP_0023,Lab Test Ordered,2026-02-05 13:39:00,Outpatient,Doctor
+HOSP_0023,Sample Collected,2026-02-05 14:00:00,Laboratory,Lab Technician
+HOSP_0023,Lab Results Available,2026-02-05 14:09:00,Laboratory,Lab Technician
+HOSP_0023,Doctor Reviews Results,2026-02-05 14:20:00,Outpatient,Doctor
+HOSP_0023,Imaging Ordered,2026-02-05 14:24:00,Radiology,Doctor
+HOSP_0023,Imaging Completed,2026-02-05 14:49:00,Radiology,Radiology Technician
+HOSP_0023,Doctor Reviews Imaging,2026-02-05 15:05:00,Emergency,Doctor
+HOSP_0023,Admission Decision,2026-02-05 15:08:00,Outpatient/Emergency,Doctor
+HOSP_0023,Bed Assigned,2026-02-05 15:27:00,Inpatient Ward,Bed Manager
+HOSP_0023,Patient Transferred to Ward,2026-02-05 15:47:00,Inpatient Ward,Nurse
+HOSP_0023,Treatment Completed,2026-02-05 16:11:00,Inpatient Ward,Doctor
+HOSP_0023,Discharge Processed,2026-02-05 16:35:00,Discharge Desk,Discharge Clerk
+HOSP_0024,Patient Registration,2026-02-16 14:21:00,Front Desk,Registration Clerk
+HOSP_0024,Initial Triage,2026-02-16 14:33:00,Emergency/Triage,Triage Nurse
+HOSP_0024,Doctor Consultation,2026-02-16 14:52:00,Outpatient,Doctor
+HOSP_0024,Treatment/Prescription,2026-02-16 15:04:00,Outpatient,Doctor
+HOSP_0024,Payment Completed,2026-02-16 15:28:00,Billing,Billing Clerk
+HOSP_0024,Patient Discharged,2026-02-16 15:44:00,Outpatient,Nurse
+HOSP_0025,Patient Registration,2026-02-21 18:53:00,Front Desk,Registration Clerk
+HOSP_0025,Initial Triage,2026-02-21 19:05:00,Emergency/Triage,Triage Nurse
+HOSP_0025,Doctor Consultation,2026-02-21 19:20:00,Outpatient,Doctor
+HOSP_0025,Treatment/Prescription,2026-02-21 19:40:00,Outpatient,Doctor
+HOSP_0025,Payment Completed,2026-02-21 19:43:00,Billing,Billing Clerk
+HOSP_0025,Patient Discharged,2026-02-21 19:55:00,Outpatient,Nurse
+HOSP_0026,Patient Registration,2026-01-27 14:20:00,Front Desk,Registration Clerk
+HOSP_0026,Initial Triage,2026-01-27 14:32:00,Emergency/Triage,Triage Nurse
+HOSP_0026,Doctor Consultation,2026-01-27 14:51:00,Outpatient,Doctor
+HOSP_0026,Lab Test Ordered,2026-01-27 15:15:00,Outpatient,Doctor
+HOSP_0026,Sample Collected,2026-01-27 15:38:00,Laboratory,Lab Technician
+HOSP_0026,Lab Results Available,2026-01-27 16:00:00,Laboratory,Lab Technician
+HOSP_0026,Doctor Reviews Results,2026-01-27 16:13:00,Outpatient,Doctor
+HOSP_0026,Admission Decision,2026-01-27 16:18:00,Outpatient/Emergency,Doctor
+HOSP_0026,Bed Assigned,2026-01-27 16:28:00,Inpatient Ward,Bed Manager
+HOSP_0026,Patient Transferred to Ward,2026-01-27 16:52:00,Inpatient Ward,Nurse
+HOSP_0026,Treatment Completed,2026-01-27 17:04:00,Inpatient Ward,Doctor
+HOSP_0026,Discharge Processed,2026-01-27 17:14:00,Discharge Desk,Discharge Clerk
+HOSP_0027,Patient Registration,2026-01-19 07:25:00,Front Desk,Registration Clerk
+HOSP_0027,Initial Triage,2026-01-19 07:46:00,Emergency/Triage,Triage Nurse
+HOSP_0027,Doctor Consultation,2026-01-19 07:55:00,Outpatient,Doctor
+HOSP_0027,Treatment/Prescription,2026-01-19 08:20:00,Outpatient,Doctor
+HOSP_0027,Payment Completed,2026-01-19 08:45:00,Billing,Billing Clerk
+HOSP_0027,Patient Discharged,2026-01-19 09:00:00,Outpatient,Nurse
+HOSP_0028,Patient Registration,2026-02-21 11:09:00,Front Desk,Registration Clerk
+HOSP_0028,Initial Triage,2026-02-21 11:34:00,Emergency/Triage,Triage Nurse
+HOSP_0028,Doctor Consultation,2026-02-21 11:53:00,Outpatient,Doctor
+HOSP_0028,Treatment/Prescription,2026-02-21 12:10:00,Outpatient,Doctor
+HOSP_0028,Payment Completed,2026-02-21 12:14:00,Billing,Billing Clerk
+HOSP_0028,Patient Discharged,2026-02-21 12:34:00,Outpatient,Nurse
+HOSP_0029,Patient Registration,2026-01-16 14:47:00,Front Desk,Registration Clerk
+HOSP_0029,Initial Triage,2026-01-16 15:04:00,Emergency/Triage,Triage Nurse
+HOSP_0029,Doctor Consultation,2026-01-16 15:26:00,Outpatient,Doctor
+HOSP_0029,Treatment/Prescription,2026-01-16 15:45:00,Outpatient,Doctor
+HOSP_0029,Payment Completed,2026-01-16 16:01:00,Billing,Billing Clerk
+HOSP_0029,Patient Discharged,2026-01-16 16:21:00,Outpatient,Nurse
+HOSP_0030,Patient Registration,2026-01-21 19:41:00,Front Desk,Registration Clerk
+HOSP_0030,Initial Triage,2026-01-21 19:51:00,Emergency/Triage,Triage Nurse
+HOSP_0030,Doctor Consultation,2026-01-21 20:02:00,Outpatient,Doctor
+HOSP_0030,Lab Test Ordered,2026-01-21 20:15:00,Outpatient,Doctor
+HOSP_0030,Sample Collected,2026-01-21 20:28:00,Laboratory,Lab Technician
+HOSP_0030,Lab Results Available,2026-01-21 20:48:00,Laboratory,Lab Technician
+HOSP_0030,Doctor Reviews Results,2026-01-21 20:53:00,Outpatient,Doctor
+HOSP_0030,Admission Decision,2026-01-21 21:00:00,Outpatient/Emergency,Doctor
+HOSP_0030,Bed Assigned,2026-01-21 21:07:00,Inpatient Ward,Bed Manager
+HOSP_0030,Patient Transferred to Ward,2026-01-21 21:17:00,Inpatient Ward,Nurse
+HOSP_0030,Treatment Completed,2026-01-21 21:32:00,Inpatient Ward,Doctor
+HOSP_0030,Discharge Processed,2026-01-21 21:57:00,Discharge Desk,Discharge Clerk
+HOSP_0031,Patient Registration,2026-01-28 08:05:00,Front Desk,Registration Clerk
+HOSP_0031,Initial Triage,2026-01-28 08:26:00,Emergency/Triage,Triage Nurse
+HOSP_0031,Doctor Consultation,2026-01-28 08:41:00,Outpatient,Doctor
+HOSP_0031,Lab Test Ordered,2026-01-28 08:59:00,Outpatient,Doctor
+HOSP_0031,Sample Collected,2026-01-28 09:02:00,Laboratory,Lab Technician
+HOSP_0031,Lab Results Available,2026-01-28 09:16:00,Laboratory,Lab Technician
+HOSP_0031,Doctor Reviews Results,2026-01-28 09:28:00,Outpatient,Doctor
+HOSP_0031,Treatment/Prescription,2026-01-28 09:43:00,Outpatient,Doctor
+HOSP_0031,Payment Completed,2026-01-28 09:59:00,Billing,Billing Clerk
+HOSP_0031,Patient Discharged,2026-01-28 10:19:00,Outpatient,Nurse
+HOSP_0032,Patient Registration,2026-03-19 10:45:00,Front Desk,Registration Clerk
+HOSP_0032,Initial Triage,2026-03-19 11:07:00,Emergency/Triage,Triage Nurse
+HOSP_0032,Doctor Consultation,2026-03-19 11:27:00,Outpatient,Doctor
+HOSP_0032,Lab Test Ordered,2026-03-19 11:30:00,Outpatient,Doctor
+HOSP_0032,Sample Collected,2026-03-19 11:45:00,Laboratory,Lab Technician
+HOSP_0032,Lab Results Available,2026-03-19 12:06:00,Laboratory,Lab Technician
+HOSP_0032,Doctor Reviews Results,2026-03-19 12:27:00,Outpatient,Doctor
+HOSP_0032,Treatment/Prescription,2026-03-19 12:51:00,Outpatient,Doctor
+HOSP_0032,Payment Completed,2026-03-19 12:54:00,Billing,Billing Clerk
+HOSP_0032,Patient Discharged,2026-03-19 12:59:00,Outpatient,Nurse
+HOSP_0033,Patient Registration,2026-02-24 09:18:00,Front Desk,Registration Clerk
+HOSP_0033,Initial Triage,2026-02-24 09:34:00,Emergency/Triage,Triage Nurse
+HOSP_0033,Doctor Consultation,2026-02-24 09:45:00,Outpatient,Doctor
+HOSP_0033,Lab Test Ordered,2026-02-24 09:50:00,Outpatient,Doctor
+HOSP_0033,Sample Collected,2026-02-24 10:08:00,Laboratory,Lab Technician
+HOSP_0033,Lab Results Available,2026-02-24 10:11:00,Laboratory,Lab Technician
+HOSP_0033,Doctor Reviews Results,2026-02-24 10:31:00,Outpatient,Doctor
+HOSP_0033,Admission Decision,2026-02-24 10:35:00,Outpatient/Emergency,Doctor
+HOSP_0033,Bed Assigned,2026-02-24 10:49:00,Inpatient Ward,Bed Manager
+HOSP_0033,Patient Transferred to Ward,2026-02-24 10:59:00,Inpatient Ward,Nurse
+HOSP_0033,Treatment Completed,2026-02-24 11:22:00,Inpatient Ward,Doctor
+HOSP_0033,Discharge Processed,2026-02-24 11:27:00,Discharge Desk,Discharge Clerk
+HOSP_0034,Patient Registration,2026-01-06 19:52:00,Front Desk,Registration Clerk
+HOSP_0034,Initial Triage,2026-01-06 20:16:00,Emergency/Triage,Triage Nurse
+HOSP_0034,Doctor Consultation,2026-01-06 20:22:00,Outpatient,Doctor
+HOSP_0034,Treatment/Prescription,2026-01-06 20:43:00,Outpatient,Doctor
+HOSP_0034,Payment Completed,2026-01-06 20:52:00,Billing,Billing Clerk
+HOSP_0034,Patient Discharged,2026-01-06 21:09:00,Outpatient,Nurse
+HOSP_0035,Patient Registration,2026-02-02 20:05:00,Front Desk,Registration Clerk
+HOSP_0035,Initial Triage,2026-02-02 20:20:00,Emergency/Triage,Triage Nurse
+HOSP_0035,Doctor Consultation,2026-02-02 20:35:00,Outpatient,Doctor
+HOSP_0035,Lab Test Ordered,2026-02-02 21:00:00,Outpatient,Doctor
+HOSP_0035,Sample Collected,2026-02-02 21:09:00,Laboratory,Lab Technician
+HOSP_0035,Lab Results Available,2026-02-02 21:14:00,Laboratory,Lab Technician
+HOSP_0035,Doctor Reviews Results,2026-02-02 21:35:00,Outpatient,Doctor
+HOSP_0035,Treatment/Prescription,2026-02-02 22:00:00,Outpatient,Doctor
+HOSP_0035,Payment Completed,2026-02-02 22:23:00,Billing,Billing Clerk
+HOSP_0035,Patient Discharged,2026-02-02 22:33:00,Outpatient,Nurse
+HOSP_0036,Patient Registration,2026-03-31 20:11:00,Front Desk,Registration Clerk
+HOSP_0036,Initial Triage,2026-03-31 20:35:00,Emergency/Triage,Triage Nurse
+HOSP_0036,Doctor Consultation,2026-03-31 20:49:00,Outpatient,Doctor
+HOSP_0036,Treatment/Prescription,2026-03-31 20:54:00,Outpatient,Doctor
+HOSP_0036,Payment Completed,2026-03-31 21:13:00,Billing,Billing Clerk
+HOSP_0036,Patient Discharged,2026-03-31 21:36:00,Outpatient,Nurse
+HOSP_0037,Patient Registration,2026-01-02 14:10:00,Front Desk,Registration Clerk
+HOSP_0037,Initial Triage,2026-01-02 14:30:00,Emergency/Triage,Triage Nurse
+HOSP_0037,Doctor Consultation,2026-01-02 14:48:00,Outpatient,Doctor
+HOSP_0037,Lab Test Ordered,2026-01-02 15:05:00,Outpatient,Doctor
+HOSP_0037,Sample Collected,2026-01-02 15:21:00,Laboratory,Lab Technician
+HOSP_0037,Lab Results Available,2026-01-02 15:42:00,Laboratory,Lab Technician
+HOSP_0037,Doctor Reviews Results,2026-01-02 15:53:00,Outpatient,Doctor
+HOSP_0037,Admission Decision,2026-01-02 16:06:00,Outpatient/Emergency,Doctor
+HOSP_0037,Bed Assigned,2026-01-02 16:16:00,Inpatient Ward,Bed Manager
+HOSP_0037,Patient Transferred to Ward,2026-01-02 16:21:00,Inpatient Ward,Nurse
+HOSP_0037,Treatment Completed,2026-01-02 16:32:00,Inpatient Ward,Doctor
+HOSP_0037,Discharge Processed,2026-01-02 16:49:00,Discharge Desk,Discharge Clerk
+HOSP_0038,Patient Registration,2026-03-01 16:43:00,Front Desk,Registration Clerk
+HOSP_0038,Initial Triage,2026-03-01 17:02:00,Emergency/Triage,Triage Nurse
+HOSP_0038,Doctor Consultation,2026-03-01 17:11:00,Outpatient,Doctor
+HOSP_0038,Lab Test Ordered,2026-03-01 17:16:00,Outpatient,Doctor
+HOSP_0038,Sample Collected,2026-03-01 17:26:00,Laboratory,Lab Technician
+HOSP_0038,Lab Results Available,2026-03-01 17:42:00,Laboratory,Lab Technician
+HOSP_0038,Doctor Reviews Results,2026-03-01 18:00:00,Outpatient,Doctor
+HOSP_0038,Imaging Ordered,2026-03-01 18:20:00,Radiology,Doctor
+HOSP_0038,Imaging Completed,2026-03-01 18:30:00,Radiology,Radiology Technician
+HOSP_0038,Doctor Reviews Imaging,2026-03-01 18:55:00,Emergency,Doctor
+HOSP_0038,Treatment/Prescription,2026-03-01 19:13:00,Outpatient,Doctor
+HOSP_0038,Payment Completed,2026-03-01 19:36:00,Billing,Billing Clerk
+HOSP_0038,Patient Discharged,2026-03-01 20:01:00,Outpatient,Nurse
+HOSP_0039,Patient Registration,2026-02-27 20:31:00,Front Desk,Registration Clerk
+HOSP_0039,Initial Triage,2026-02-27 20:45:00,Emergency/Triage,Triage Nurse
+HOSP_0039,Doctor Consultation,2026-02-27 21:03:00,Outpatient,Doctor
+HOSP_0039,Treatment/Prescription,2026-02-27 21:23:00,Outpatient,Doctor
+HOSP_0039,Payment Completed,2026-02-27 21:42:00,Billing,Billing Clerk
+HOSP_0039,Patient Discharged,2026-02-27 21:56:00,Outpatient,Nurse
+HOSP_0040,Patient Registration,2026-03-12 12:38:00,Front Desk,Registration Clerk
+HOSP_0040,Initial Triage,2026-03-12 13:03:00,Emergency/Triage,Triage Nurse
+HOSP_0040,Doctor Consultation,2026-03-12 13:11:00,Outpatient,Doctor
+HOSP_0040,Lab Test Ordered,2026-03-12 13:20:00,Outpatient,Doctor
+HOSP_0040,Sample Collected,2026-03-12 13:29:00,Laboratory,Lab Technician
+HOSP_0040,Lab Results Available,2026-03-12 13:47:00,Laboratory,Lab Technician
+HOSP_0040,Doctor Reviews Results,2026-03-12 13:58:00,Outpatient,Doctor
+HOSP_0040,Treatment/Prescription,2026-03-12 14:19:00,Outpatient,Doctor
+HOSP_0040,Payment Completed,2026-03-12 14:38:00,Billing,Billing Clerk
+HOSP_0040,Patient Discharged,2026-03-12 15:00:00,Outpatient,Nurse
+HOSP_0041,Patient Registration,2026-01-13 10:18:00,Front Desk,Registration Clerk
+HOSP_0041,Initial Triage,2026-01-13 10:22:00,Emergency/Triage,Triage Nurse
+HOSP_0041,Doctor Consultation,2026-01-13 10:26:00,Outpatient,Doctor
+HOSP_0041,Treatment/Prescription,2026-01-13 10:46:00,Outpatient,Doctor
+HOSP_0041,Payment Completed,2026-01-13 10:58:00,Billing,Billing Clerk
+HOSP_0041,Patient Discharged,2026-01-13 11:23:00,Outpatient,Nurse
+HOSP_0042,Patient Registration,2026-03-23 19:50:00,Front Desk,Registration Clerk
+HOSP_0042,Initial Triage,2026-03-23 20:08:00,Emergency/Triage,Triage Nurse
+HOSP_0042,Doctor Consultation,2026-03-23 20:14:00,Outpatient,Doctor
+HOSP_0042,Lab Test Ordered,2026-03-23 20:19:00,Outpatient,Doctor
+HOSP_0042,Sample Collected,2026-03-23 20:34:00,Laboratory,Lab Technician
+HOSP_0042,Lab Results Available,2026-03-23 20:52:00,Laboratory,Lab Technician
+HOSP_0042,Doctor Reviews Results,2026-03-23 20:57:00,Outpatient,Doctor
+HOSP_0042,Treatment/Prescription,2026-03-23 21:18:00,Outpatient,Doctor
+HOSP_0042,Payment Completed,2026-03-23 21:41:00,Billing,Billing Clerk
+HOSP_0042,Patient Discharged,2026-03-23 22:05:00,Outpatient,Nurse
+HOSP_0043,Patient Registration,2026-01-20 09:32:00,Front Desk,Registration Clerk
+HOSP_0043,Initial Triage,2026-01-20 09:47:00,Emergency/Triage,Triage Nurse
+HOSP_0043,Doctor Consultation,2026-01-20 10:04:00,Outpatient,Doctor
+HOSP_0043,Lab Test Ordered,2026-01-20 10:21:00,Outpatient,Doctor
+HOSP_0043,Sample Collected,2026-01-20 10:33:00,Laboratory,Lab Technician
+HOSP_0043,Lab Results Available,2026-01-20 10:54:00,Laboratory,Lab Technician
+HOSP_0043,Doctor Reviews Results,2026-01-20 11:10:00,Outpatient,Doctor
+HOSP_0043,Admission Decision,2026-01-20 11:22:00,Outpatient/Emergency,Doctor
+HOSP_0043,Bed Assigned,2026-01-20 11:43:00,Inpatient Ward,Bed Manager
+HOSP_0043,Patient Transferred to Ward,2026-01-20 12:05:00,Inpatient Ward,Nurse
+HOSP_0043,Treatment Completed,2026-01-20 12:09:00,Inpatient Ward,Doctor
+HOSP_0043,Discharge Processed,2026-01-20 12:31:00,Discharge Desk,Discharge Clerk
+HOSP_0044,Patient Registration,2026-01-27 17:40:00,Front Desk,Registration Clerk
+HOSP_0044,Initial Triage,2026-01-27 17:48:00,Emergency/Triage,Triage Nurse
+HOSP_0044,Doctor Consultation,2026-01-27 17:51:00,Outpatient,Doctor
+HOSP_0044,Treatment/Prescription,2026-01-27 18:07:00,Outpatient,Doctor
+HOSP_0044,Payment Completed,2026-01-27 18:24:00,Billing,Billing Clerk
+HOSP_0044,Patient Discharged,2026-01-27 18:49:00,Outpatient,Nurse
+HOSP_0045,Patient Registration,2026-03-02 11:58:00,Front Desk,Registration Clerk
+HOSP_0045,Initial Triage,2026-03-02 12:09:00,Emergency/Triage,Triage Nurse
+HOSP_0045,Doctor Consultation,2026-03-02 12:32:00,Outpatient,Doctor
+HOSP_0045,Treatment/Prescription,2026-03-02 12:53:00,Outpatient,Doctor
+HOSP_0045,Payment Completed,2026-03-02 13:17:00,Billing,Billing Clerk
+HOSP_0045,Patient Discharged,2026-03-02 13:26:00,Outpatient,Nurse
+HOSP_0046,Patient Registration,2026-01-15 16:39:00,Front Desk,Registration Clerk
+HOSP_0046,Initial Triage,2026-01-15 17:00:00,Emergency/Triage,Triage Nurse
+HOSP_0046,Doctor Consultation,2026-01-15 17:12:00,Outpatient,Doctor
+HOSP_0046,Repeat Doctor Consultation,2026-01-15 17:29:00,Outpatient,Doctor
+HOSP_0046,Treatment/Prescription,2026-01-15 17:35:00,Outpatient,Doctor
+HOSP_0046,Payment Completed,2026-01-15 17:52:00,Billing,Billing Clerk
+HOSP_0046,Patient Discharged,2026-01-15 18:17:00,Outpatient,Nurse
+HOSP_0047,Patient Registration,2026-02-08 18:56:00,Front Desk,Registration Clerk
+HOSP_0047,Initial Triage,2026-02-08 19:18:00,Emergency/Triage,Triage Nurse
+HOSP_0047,Doctor Consultation,2026-02-08 19:29:00,Outpatient,Doctor
+HOSP_0047,Lab Test Ordered,2026-02-08 19:32:00,Outpatient,Doctor
+HOSP_0047,Sample Collected,2026-02-08 19:37:00,Laboratory,Lab Technician
+HOSP_0047,Lab Results Available,2026-02-08 19:47:00,Laboratory,Lab Technician
+HOSP_0047,Doctor Reviews Results,2026-02-08 20:11:00,Outpatient,Doctor
+HOSP_0047,Treatment/Prescription,2026-02-08 20:32:00,Outpatient,Doctor
+HOSP_0047,Payment Completed,2026-02-08 20:53:00,Billing,Billing Clerk
+HOSP_0047,Patient Discharged,2026-02-08 20:56:00,Outpatient,Nurse
+HOSP_0048,Patient Registration,2026-02-04 16:50:00,Front Desk,Registration Clerk
+HOSP_0048,Initial Triage,2026-02-04 16:58:00,Emergency/Triage,Triage Nurse
+HOSP_0048,Doctor Consultation,2026-02-04 17:19:00,Outpatient,Doctor
+HOSP_0048,Treatment/Prescription,2026-02-04 17:35:00,Outpatient,Doctor
+HOSP_0048,Payment Completed,2026-02-04 17:58:00,Billing,Billing Clerk
+HOSP_0048,Patient Discharged,2026-02-04 18:16:00,Outpatient,Nurse
+HOSP_0049,Patient Registration,2026-03-02 12:56:00,Front Desk,Registration Clerk
+HOSP_0049,Initial Triage,2026-03-02 13:16:00,Emergency/Triage,Triage Nurse
+HOSP_0049,Doctor Consultation,2026-03-02 13:20:00,Outpatient,Doctor
+HOSP_0049,Lab Test Ordered,2026-03-02 13:37:00,Outpatient,Doctor
+HOSP_0049,Sample Collected,2026-03-02 13:42:00,Laboratory,Lab Technician
+HOSP_0049,Lab Results Available,2026-03-02 13:55:00,Laboratory,Lab Technician
+HOSP_0049,Doctor Reviews Results,2026-03-02 14:06:00,Outpatient,Doctor
+HOSP_0049,Treatment/Prescription,2026-03-02 14:19:00,Outpatient,Doctor
+HOSP_0049,Payment Completed,2026-03-02 14:25:00,Billing,Billing Clerk
+HOSP_0049,Patient Discharged,2026-03-02 14:40:00,Outpatient,Nurse
+HOSP_0050,Patient Registration,2026-01-01 18:13:00,Front Desk,Registration Clerk
+HOSP_0050,Initial Triage,2026-01-01 18:22:00,Emergency/Triage,Triage Nurse
+HOSP_0050,Doctor Consultation,2026-01-01 18:33:00,Outpatient,Doctor
+HOSP_0050,Lab Test Ordered,2026-01-01 18:53:00,Outpatient,Doctor
+HOSP_0050,Sample Collected,2026-01-01 19:00:00,Laboratory,Lab Technician
+HOSP_0050,Lab Results Available,2026-01-01 19:12:00,Laboratory,Lab Technician
+HOSP_0050,Doctor Reviews Results,2026-01-01 19:29:00,Outpatient,Doctor
+HOSP_0050,Admission Decision,2026-01-01 19:54:00,Outpatient/Emergency,Doctor
+HOSP_0050,Bed Assigned,2026-01-01 20:12:00,Inpatient Ward,Bed Manager
+HOSP_0050,Patient Transferred to Ward,2026-01-01 20:18:00,Inpatient Ward,Nurse
+HOSP_0050,Treatment Completed,2026-01-01 20:21:00,Inpatient Ward,Doctor
+HOSP_0050,Discharge Processed,2026-01-01 20:44:00,Discharge Desk,Discharge Clerk
+HOSP_0051,Patient Registration,2026-01-31 19:06:00,Front Desk,Registration Clerk
+HOSP_0051,Initial Triage,2026-01-31 19:12:00,Emergency/Triage,Triage Nurse
+HOSP_0051,Doctor Consultation,2026-01-31 19:29:00,Outpatient,Doctor
+HOSP_0051,Treatment/Prescription,2026-01-31 19:35:00,Outpatient,Doctor
+HOSP_0051,Payment Completed,2026-01-31 19:58:00,Billing,Billing Clerk
+HOSP_0051,Patient Discharged,2026-01-31 20:05:00,Outpatient,Nurse
+HOSP_0052,Patient Registration,2026-02-07 15:41:00,Front Desk,Registration Clerk
+HOSP_0052,Initial Triage,2026-02-07 15:57:00,Emergency/Triage,Triage Nurse
+HOSP_0052,Doctor Consultation,2026-02-07 16:10:00,Outpatient,Doctor
+HOSP_0052,Lab Test Ordered,2026-02-07 16:29:00,Outpatient,Doctor
+HOSP_0052,Sample Collected,2026-02-07 16:40:00,Laboratory,Lab Technician
+HOSP_0052,Lab Results Available,2026-02-07 16:43:00,Laboratory,Lab Technician
+HOSP_0052,Doctor Reviews Results,2026-02-07 16:55:00,Outpatient,Doctor
+HOSP_0052,Imaging Ordered,2026-02-07 17:07:00,Radiology,Doctor
+HOSP_0052,Imaging Completed,2026-02-07 17:28:00,Radiology,Radiology Technician
+HOSP_0052,Doctor Reviews Imaging,2026-02-07 17:49:00,Emergency,Doctor
+HOSP_0052,Admission Decision,2026-02-07 18:13:00,Outpatient/Emergency,Doctor
+HOSP_0052,Bed Assigned,2026-02-07 18:31:00,Inpatient Ward,Bed Manager
+HOSP_0052,Patient Transferred to Ward,2026-02-07 18:38:00,Inpatient Ward,Nurse
+HOSP_0052,Treatment Completed,2026-02-07 18:55:00,Inpatient Ward,Doctor
+HOSP_0052,Discharge Processed,2026-02-07 19:15:00,Discharge Desk,Discharge Clerk
+HOSP_0053,Patient Registration,2026-02-14 12:40:00,Front Desk,Registration Clerk
+HOSP_0053,Initial Triage,2026-02-14 12:56:00,Emergency/Triage,Triage Nurse
+HOSP_0053,Doctor Consultation,2026-02-14 13:00:00,Outpatient,Doctor
+HOSP_0053,Lab Test Ordered,2026-02-14 13:13:00,Outpatient,Doctor
+HOSP_0053,Sample Collected,2026-02-14 13:31:00,Laboratory,Lab Technician
+HOSP_0053,Lab Results Available,2026-02-14 13:56:00,Laboratory,Lab Technician
+HOSP_0053,Doctor Reviews Results,2026-02-14 14:11:00,Outpatient,Doctor
+HOSP_0053,Treatment/Prescription,2026-02-14 14:26:00,Outpatient,Doctor
+HOSP_0053,Payment Completed,2026-02-14 14:50:00,Billing,Billing Clerk
+HOSP_0053,Patient Discharged,2026-02-14 15:13:00,Outpatient,Nurse
+HOSP_0054,Patient Registration,2026-03-05 07:37:00,Front Desk,Registration Clerk
+HOSP_0054,Initial Triage,2026-03-05 07:54:00,Emergency/Triage,Triage Nurse
+HOSP_0054,Doctor Consultation,2026-03-05 07:57:00,Outpatient,Doctor
+HOSP_0054,Treatment/Prescription,2026-03-05 08:04:00,Outpatient,Doctor
+HOSP_0054,Payment Completed,2026-03-05 08:20:00,Billing,Billing Clerk
+HOSP_0054,Patient Discharged,2026-03-05 08:43:00,Outpatient,Nurse
+HOSP_0055,Patient Registration,2026-01-10 15:00:00,Front Desk,Registration Clerk
+HOSP_0055,Initial Triage,2026-01-10 15:18:00,Emergency/Triage,Triage Nurse
+HOSP_0055,Doctor Consultation,2026-01-10 15:38:00,Outpatient,Doctor
+HOSP_0055,Lab Test Ordered,2026-01-10 15:42:00,Outpatient,Doctor
+HOSP_0055,Sample Collected,2026-01-10 16:04:00,Laboratory,Lab Technician
+HOSP_0055,Lab Results Available,2026-01-10 16:09:00,Laboratory,Lab Technician
+HOSP_0055,Doctor Reviews Results,2026-01-10 16:19:00,Outpatient,Doctor
+HOSP_0055,Admission Decision,2026-01-10 16:42:00,Outpatient/Emergency,Doctor
+HOSP_0055,Bed Assigned,2026-01-10 17:06:00,Inpatient Ward,Bed Manager
+HOSP_0055,Patient Transferred to Ward,2026-01-10 17:18:00,Inpatient Ward,Nurse
+HOSP_0055,Treatment Completed,2026-01-10 17:28:00,Inpatient Ward,Doctor
+HOSP_0055,Discharge Processed,2026-01-10 17:33:00,Discharge Desk,Discharge Clerk
+HOSP_0056,Patient Registration,2026-01-13 19:58:00,Front Desk,Registration Clerk
+HOSP_0056,Initial Triage,2026-01-13 20:06:00,Emergency/Triage,Triage Nurse
+HOSP_0056,Doctor Consultation,2026-01-13 20:14:00,Outpatient,Doctor
+HOSP_0056,Lab Test Ordered,2026-01-13 20:22:00,Outpatient,Doctor
+HOSP_0056,Sample Collected,2026-01-13 20:27:00,Laboratory,Lab Technician
+HOSP_0056,Lab Results Available,2026-01-13 20:49:00,Laboratory,Lab Technician
+HOSP_0056,Doctor Reviews Results,2026-01-13 21:04:00,Outpatient,Doctor
+HOSP_0056,Imaging Ordered,2026-01-13 21:26:00,Radiology,Doctor
+HOSP_0056,Imaging Completed,2026-01-13 21:50:00,Radiology,Radiology Technician
+HOSP_0056,Doctor Reviews Imaging,2026-01-13 22:00:00,Emergency,Doctor
+HOSP_0056,Admission Decision,2026-01-13 22:18:00,Outpatient/Emergency,Doctor
+HOSP_0056,Bed Assigned,2026-01-13 22:39:00,Inpatient Ward,Bed Manager
+HOSP_0056,Patient Transferred to Ward,2026-01-13 22:46:00,Inpatient Ward,Nurse
+HOSP_0056,Treatment Completed,2026-01-13 22:56:00,Inpatient Ward,Doctor
+HOSP_0056,Discharge Processed,2026-01-13 23:13:00,Discharge Desk,Discharge Clerk
+HOSP_0057,Patient Registration,2026-02-02 14:50:00,Front Desk,Registration Clerk
+HOSP_0057,Initial Triage,2026-02-02 15:07:00,Emergency/Triage,Triage Nurse
+HOSP_0057,Doctor Consultation,2026-02-02 15:21:00,Outpatient,Doctor
+HOSP_0057,Treatment/Prescription,2026-02-02 15:42:00,Outpatient,Doctor
+HOSP_0057,Payment Completed,2026-02-02 15:54:00,Billing,Billing Clerk
+HOSP_0057,Patient Discharged,2026-02-02 16:17:00,Outpatient,Nurse
+HOSP_0058,Patient Registration,2026-03-30 11:16:00,Front Desk,Registration Clerk
+HOSP_0058,Initial Triage,2026-03-30 11:28:00,Emergency/Triage,Triage Nurse
+HOSP_0058,Doctor Consultation,2026-03-30 11:31:00,Outpatient,Doctor
+HOSP_0058,Lab Test Ordered,2026-03-30 11:55:00,Outpatient,Doctor
+HOSP_0058,Sample Collected,2026-03-30 12:10:00,Laboratory,Lab Technician
+HOSP_0058,Lab Results Available,2026-03-30 12:21:00,Laboratory,Lab Technician
+HOSP_0058,Doctor Reviews Results,2026-03-30 12:24:00,Outpatient,Doctor
+HOSP_0058,Treatment/Prescription,2026-03-30 12:45:00,Outpatient,Doctor
+HOSP_0058,Payment Completed,2026-03-30 13:09:00,Billing,Billing Clerk
+HOSP_0058,Patient Discharged,2026-03-30 13:13:00,Outpatient,Nurse
+HOSP_0059,Patient Registration,2026-03-05 11:53:00,Front Desk,Registration Clerk
+HOSP_0059,Initial Triage,2026-03-05 12:16:00,Emergency/Triage,Triage Nurse
+HOSP_0059,Doctor Consultation,2026-03-05 12:39:00,Outpatient,Doctor
+HOSP_0059,Lab Test Ordered,2026-03-05 12:43:00,Outpatient,Doctor
+HOSP_0059,Sample Collected,2026-03-05 12:55:00,Laboratory,Lab Technician
+HOSP_0059,Lab Results Available,2026-03-05 13:12:00,Laboratory,Lab Technician
+HOSP_0059,Doctor Reviews Results,2026-03-05 13:16:00,Outpatient,Doctor
+HOSP_0059,Admission Decision,2026-03-05 13:37:00,Outpatient/Emergency,Doctor
+HOSP_0059,Bed Assigned,2026-03-05 13:51:00,Inpatient Ward,Bed Manager
+HOSP_0059,Patient Transferred to Ward,2026-03-05 13:58:00,Inpatient Ward,Nurse
+HOSP_0059,Treatment Completed,2026-03-05 14:03:00,Inpatient Ward,Doctor
+HOSP_0059,Discharge Processed,2026-03-05 14:15:00,Discharge Desk,Discharge Clerk
+HOSP_0060,Patient Registration,2026-02-23 09:59:00,Front Desk,Registration Clerk
+HOSP_0060,Initial Triage,2026-02-23 10:07:00,Emergency/Triage,Triage Nurse
+HOSP_0060,Doctor Consultation,2026-02-23 10:18:00,Outpatient,Doctor
+HOSP_0060,Treatment/Prescription,2026-02-23 10:36:00,Outpatient,Doctor
+HOSP_0060,Payment Completed,2026-02-23 10:48:00,Billing,Billing Clerk
+HOSP_0060,Patient Discharged,2026-02-23 11:01:00,Outpatient,Nurse
+HOSP_0061,Patient Registration,2026-03-01 08:20:00,Front Desk,Registration Clerk
+HOSP_0061,Initial Triage,2026-03-01 08:31:00,Emergency/Triage,Triage Nurse
+HOSP_0061,Doctor Consultation,2026-03-01 08:51:00,Outpatient,Doctor
+HOSP_0061,Repeat Doctor Consultation,2026-03-01 08:57:00,Outpatient,Doctor
+HOSP_0061,Treatment/Prescription,2026-03-01 09:14:00,Outpatient,Doctor
+HOSP_0061,Payment Completed,2026-03-01 09:28:00,Billing,Billing Clerk
+HOSP_0061,Patient Discharged,2026-03-01 09:52:00,Outpatient,Nurse
+HOSP_0062,Patient Registration,2026-03-28 11:28:00,Front Desk,Registration Clerk
+HOSP_0062,Initial Triage,2026-03-28 11:38:00,Emergency/Triage,Triage Nurse
+HOSP_0062,Doctor Consultation,2026-03-28 12:01:00,Outpatient,Doctor
+HOSP_0062,Lab Test Ordered,2026-03-28 12:06:00,Outpatient,Doctor
+HOSP_0062,Sample Collected,2026-03-28 12:29:00,Laboratory,Lab Technician
+HOSP_0062,Lab Results Available,2026-03-28 12:46:00,Laboratory,Lab Technician
+HOSP_0062,Doctor Reviews Results,2026-03-28 13:11:00,Outpatient,Doctor
+HOSP_0062,Treatment/Prescription,2026-03-28 13:23:00,Outpatient,Doctor
+HOSP_0062,Payment Completed,2026-03-28 13:46:00,Billing,Billing Clerk
+HOSP_0062,Patient Discharged,2026-03-28 14:02:00,Outpatient,Nurse
+HOSP_0063,Patient Registration,2026-01-18 07:46:00,Front Desk,Registration Clerk
+HOSP_0063,Initial Triage,2026-01-18 07:53:00,Emergency/Triage,Triage Nurse
+HOSP_0063,Doctor Consultation,2026-01-18 08:09:00,Outpatient,Doctor
+HOSP_0063,Lab Test Ordered,2026-01-18 08:32:00,Outpatient,Doctor
+HOSP_0063,Sample Collected,2026-01-18 08:38:00,Laboratory,Lab Technician
+HOSP_0063,Lab Results Available,2026-01-18 08:56:00,Laboratory,Lab Technician
+HOSP_0063,Doctor Reviews Results,2026-01-18 09:18:00,Outpatient,Doctor
+HOSP_0063,Admission Decision,2026-01-18 09:34:00,Outpatient/Emergency,Doctor
+HOSP_0063,Bed Assigned,2026-01-18 09:45:00,Inpatient Ward,Bed Manager
+HOSP_0063,Patient Transferred to Ward,2026-01-18 09:49:00,Inpatient Ward,Nurse
+HOSP_0063,Treatment Completed,2026-01-18 10:14:00,Inpatient Ward,Doctor
+HOSP_0063,Discharge Processed,2026-01-18 10:28:00,Discharge Desk,Discharge Clerk
+HOSP_0064,Patient Registration,2026-02-26 14:35:00,Front Desk,Registration Clerk
+HOSP_0064,Initial Triage,2026-02-26 14:58:00,Emergency/Triage,Triage Nurse
+HOSP_0064,Doctor Consultation,2026-02-26 15:21:00,Outpatient,Doctor
+HOSP_0064,Lab Test Ordered,2026-02-26 15:43:00,Outpatient,Doctor
+HOSP_0064,Sample Collected,2026-02-26 15:46:00,Laboratory,Lab Technician
+HOSP_0064,Lab Results Available,2026-02-26 15:50:00,Laboratory,Lab Technician
+HOSP_0064,Doctor Reviews Results,2026-02-26 16:03:00,Outpatient,Doctor
+HOSP_0064,Admission Decision,2026-02-26 16:13:00,Outpatient/Emergency,Doctor
+HOSP_0064,Bed Assigned,2026-02-26 16:20:00,Inpatient Ward,Bed Manager
+HOSP_0064,Patient Transferred to Ward,2026-02-26 16:41:00,Inpatient Ward,Nurse
+HOSP_0064,Treatment Completed,2026-02-26 16:50:00,Inpatient Ward,Doctor
+HOSP_0064,Discharge Processed,2026-02-26 16:55:00,Discharge Desk,Discharge Clerk
+HOSP_0065,Patient Registration,2026-01-27 17:00:00,Front Desk,Registration Clerk
+HOSP_0065,Initial Triage,2026-01-27 17:07:00,Emergency/Triage,Triage Nurse
+HOSP_0065,Doctor Consultation,2026-01-27 17:14:00,Outpatient,Doctor
+HOSP_0065,Treatment/Prescription,2026-01-27 17:34:00,Outpatient,Doctor
+HOSP_0065,Payment Completed,2026-01-27 17:45:00,Billing,Billing Clerk
+HOSP_0065,Patient Discharged,2026-01-27 17:53:00,Outpatient,Nurse
+HOSP_0066,Patient Registration,2026-03-26 07:26:00,Front Desk,Registration Clerk
+HOSP_0066,Initial Triage,2026-03-26 07:30:00,Emergency/Triage,Triage Nurse
+HOSP_0066,Doctor Consultation,2026-03-26 07:37:00,Outpatient,Doctor
+HOSP_0066,Treatment/Prescription,2026-03-26 07:53:00,Outpatient,Doctor
+HOSP_0066,Payment Completed,2026-03-26 08:12:00,Billing,Billing Clerk
+HOSP_0066,Patient Discharged,2026-03-26 08:18:00,Outpatient,Nurse
+HOSP_0067,Patient Registration,2026-03-02 14:39:00,Front Desk,Registration Clerk
+HOSP_0067,Initial Triage,2026-03-02 15:02:00,Emergency/Triage,Triage Nurse
+HOSP_0067,Doctor Consultation,2026-03-02 15:05:00,Outpatient,Doctor
+HOSP_0067,Lab Test Ordered,2026-03-02 15:09:00,Outpatient,Doctor
+HOSP_0067,Sample Collected,2026-03-02 15:27:00,Laboratory,Lab Technician
+HOSP_0067,Lab Results Available,2026-03-02 15:42:00,Laboratory,Lab Technician
+HOSP_0067,Doctor Reviews Results,2026-03-02 15:58:00,Outpatient,Doctor
+HOSP_0067,Admission Decision,2026-03-02 16:22:00,Outpatient/Emergency,Doctor
+HOSP_0067,Bed Assigned,2026-03-02 16:28:00,Inpatient Ward,Bed Manager
+HOSP_0067,Patient Transferred to Ward,2026-03-02 16:46:00,Inpatient Ward,Nurse
+HOSP_0067,Treatment Completed,2026-03-02 17:11:00,Inpatient Ward,Doctor
+HOSP_0067,Discharge Processed,2026-03-02 17:28:00,Discharge Desk,Discharge Clerk
+HOSP_0068,Patient Registration,2026-01-11 12:29:00,Front Desk,Registration Clerk
+HOSP_0068,Initial Triage,2026-01-11 12:52:00,Emergency/Triage,Triage Nurse
+HOSP_0068,Doctor Consultation,2026-01-11 13:12:00,Outpatient,Doctor
+HOSP_0068,Lab Test Ordered,2026-01-11 13:21:00,Outpatient,Doctor
+HOSP_0068,Sample Collected,2026-01-11 13:37:00,Laboratory,Lab Technician
+HOSP_0068,Lab Results Available,2026-01-11 13:54:00,Laboratory,Lab Technician
+HOSP_0068,Doctor Reviews Results,2026-01-11 14:04:00,Outpatient,Doctor
+HOSP_0068,Imaging Ordered,2026-01-11 14:20:00,Radiology,Doctor
+HOSP_0068,Imaging Completed,2026-01-11 14:33:00,Radiology,Radiology Technician
+HOSP_0068,Doctor Reviews Imaging,2026-01-11 14:50:00,Emergency,Doctor
+HOSP_0068,Admission Decision,2026-01-11 15:05:00,Outpatient/Emergency,Doctor
+HOSP_0068,Bed Assigned,2026-01-11 15:21:00,Inpatient Ward,Bed Manager
+HOSP_0068,Patient Transferred to Ward,2026-01-11 15:27:00,Inpatient Ward,Nurse
+HOSP_0068,Treatment Completed,2026-01-11 15:40:00,Inpatient Ward,Doctor
+HOSP_0068,Discharge Processed,2026-01-11 15:56:00,Discharge Desk,Discharge Clerk
+HOSP_0069,Patient Registration,2026-03-27 11:28:00,Front Desk,Registration Clerk
+HOSP_0069,Initial Triage,2026-03-27 11:48:00,Emergency/Triage,Triage Nurse
+HOSP_0069,Doctor Consultation,2026-03-27 11:52:00,Outpatient,Doctor
+HOSP_0069,Repeat Doctor Consultation,2026-03-27 12:13:00,Outpatient,Doctor
+HOSP_0069,Lab Test Ordered,2026-03-27 12:33:00,Outpatient,Doctor
+HOSP_0069,Sample Collected,2026-03-27 12:53:00,Laboratory,Lab Technician
+HOSP_0069,Lab Results Available,2026-03-27 13:06:00,Laboratory,Lab Technician
+HOSP_0069,Doctor Reviews Results,2026-03-27 13:30:00,Outpatient,Doctor
+HOSP_0069,Treatment/Prescription,2026-03-27 13:36:00,Outpatient,Doctor
+HOSP_0069,Payment Completed,2026-03-27 13:52:00,Billing,Billing Clerk
+HOSP_0069,Patient Discharged,2026-03-27 14:06:00,Outpatient,Nurse
+HOSP_0070,Patient Registration,2026-03-27 19:48:00,Front Desk,Registration Clerk
+HOSP_0070,Initial Triage,2026-03-27 20:06:00,Emergency/Triage,Triage Nurse
+HOSP_0070,Doctor Consultation,2026-03-27 20:16:00,Outpatient,Doctor
+HOSP_0070,Lab Test Ordered,2026-03-27 20:22:00,Outpatient,Doctor
+HOSP_0070,Sample Collected,2026-03-27 20:36:00,Laboratory,Lab Technician
+HOSP_0070,Lab Results Available,2026-03-27 20:56:00,Laboratory,Lab Technician
+HOSP_0070,Doctor Reviews Results,2026-03-27 21:10:00,Outpatient,Doctor
+HOSP_0070,Treatment/Prescription,2026-03-27 21:16:00,Outpatient,Doctor
+HOSP_0070,Payment Completed,2026-03-27 21:27:00,Billing,Billing Clerk
+HOSP_0070,Patient Discharged,2026-03-27 21:48:00,Outpatient,Nurse
+HOSP_0071,Patient Registration,2026-02-24 16:34:00,Front Desk,Registration Clerk
+HOSP_0071,Initial Triage,2026-02-24 16:46:00,Emergency/Triage,Triage Nurse
+HOSP_0071,Doctor Consultation,2026-02-24 16:59:00,Outpatient,Doctor
+HOSP_0071,Lab Test Ordered,2026-02-24 17:13:00,Outpatient,Doctor
+HOSP_0071,Sample Collected,2026-02-24 17:16:00,Laboratory,Lab Technician
+HOSP_0071,Lab Results Available,2026-02-24 17:24:00,Laboratory,Lab Technician
+HOSP_0071,Doctor Reviews Results,2026-02-24 17:31:00,Outpatient,Doctor
+HOSP_0071,Admission Decision,2026-02-24 17:52:00,Outpatient/Emergency,Doctor
+HOSP_0071,Bed Assigned,2026-02-24 18:16:00,Inpatient Ward,Bed Manager
+HOSP_0071,Patient Transferred to Ward,2026-02-24 18:31:00,Inpatient Ward,Nurse
+HOSP_0071,Treatment Completed,2026-02-24 18:36:00,Inpatient Ward,Doctor
+HOSP_0071,Discharge Processed,2026-02-24 18:43:00,Discharge Desk,Discharge Clerk
+HOSP_0072,Patient Registration,2026-01-04 08:33:00,Front Desk,Registration Clerk
+HOSP_0072,Initial Triage,2026-01-04 08:55:00,Emergency/Triage,Triage Nurse
+HOSP_0072,Doctor Consultation,2026-01-04 08:59:00,Outpatient,Doctor
+HOSP_0072,Lab Test Ordered,2026-01-04 09:23:00,Outpatient,Doctor
+HOSP_0072,Sample Collected,2026-01-04 09:28:00,Laboratory,Lab Technician
+HOSP_0072,Lab Results Available,2026-01-04 09:39:00,Laboratory,Lab Technician
+HOSP_0072,Doctor Reviews Results,2026-01-04 09:56:00,Outpatient,Doctor
+HOSP_0072,Imaging Ordered,2026-01-04 10:20:00,Radiology,Doctor
+HOSP_0072,Imaging Completed,2026-01-04 10:36:00,Radiology,Radiology Technician
+HOSP_0072,Doctor Reviews Imaging,2026-01-04 10:54:00,Emergency,Doctor
+HOSP_0072,Treatment/Prescription,2026-01-04 11:16:00,Outpatient,Doctor
+HOSP_0072,Payment Completed,2026-01-04 11:33:00,Billing,Billing Clerk
+HOSP_0072,Patient Discharged,2026-01-04 11:49:00,Outpatient,Nurse
+HOSP_0073,Patient Registration,2026-01-28 19:53:00,Front Desk,Registration Clerk
+HOSP_0073,Initial Triage,2026-01-28 20:15:00,Emergency/Triage,Triage Nurse
+HOSP_0073,Doctor Consultation,2026-01-28 20:19:00,Outpatient,Doctor
+HOSP_0073,Lab Test Ordered,2026-01-28 20:22:00,Outpatient,Doctor
+HOSP_0073,Sample Collected,2026-01-28 20:31:00,Laboratory,Lab Technician
+HOSP_0073,Lab Results Available,2026-01-28 20:43:00,Laboratory,Lab Technician
+HOSP_0073,Doctor Reviews Results,2026-01-28 20:52:00,Outpatient,Doctor
+HOSP_0073,Treatment/Prescription,2026-01-28 20:59:00,Outpatient,Doctor
+HOSP_0073,Payment Completed,2026-01-28 21:10:00,Billing,Billing Clerk
+HOSP_0073,Patient Discharged,2026-01-28 21:22:00,Outpatient,Nurse
+HOSP_0074,Patient Registration,2026-01-16 07:07:00,Front Desk,Registration Clerk
+HOSP_0074,Initial Triage,2026-01-16 07:21:00,Emergency/Triage,Triage Nurse
+HOSP_0074,Doctor Consultation,2026-01-16 07:26:00,Outpatient,Doctor
+HOSP_0074,Lab Test Ordered,2026-01-16 07:41:00,Outpatient,Doctor
+HOSP_0074,Sample Collected,2026-01-16 07:45:00,Laboratory,Lab Technician
+HOSP_0074,Lab Results Available,2026-01-16 08:01:00,Laboratory,Lab Technician
+HOSP_0074,Doctor Reviews Results,2026-01-16 08:04:00,Outpatient,Doctor
+HOSP_0074,Treatment/Prescription,2026-01-16 08:21:00,Outpatient,Doctor
+HOSP_0074,Payment Completed,2026-01-16 08:26:00,Billing,Billing Clerk
+HOSP_0074,Patient Discharged,2026-01-16 08:39:00,Outpatient,Nurse
+HOSP_0075,Patient Registration,2026-02-24 16:47:00,Front Desk,Registration Clerk
+HOSP_0075,Initial Triage,2026-02-24 17:01:00,Emergency/Triage,Triage Nurse
+HOSP_0075,Doctor Consultation,2026-02-24 17:06:00,Outpatient,Doctor
+HOSP_0075,Lab Test Ordered,2026-02-24 17:22:00,Outpatient,Doctor
+HOSP_0075,Sample Collected,2026-02-24 17:28:00,Laboratory,Lab Technician
+HOSP_0075,Lab Results Available,2026-02-24 17:38:00,Laboratory,Lab Technician
+HOSP_0075,Doctor Reviews Results,2026-02-24 17:54:00,Outpatient,Doctor
+HOSP_0075,Treatment/Prescription,2026-02-24 18:15:00,Outpatient,Doctor
+HOSP_0075,Payment Completed,2026-02-24 18:30:00,Billing,Billing Clerk
+HOSP_0075,Patient Discharged,2026-02-24 18:49:00,Outpatient,Nurse
+HOSP_0076,Patient Registration,2026-02-20 12:17:00,Front Desk,Registration Clerk
+HOSP_0076,Initial Triage,2026-02-20 12:24:00,Emergency/Triage,Triage Nurse
+HOSP_0076,Doctor Consultation,2026-02-20 12:35:00,Outpatient,Doctor
+HOSP_0076,Lab Test Ordered,2026-02-20 12:44:00,Outpatient,Doctor
+HOSP_0076,Sample Collected,2026-02-20 12:52:00,Laboratory,Lab Technician
+HOSP_0076,Lab Results Available,2026-02-20 13:14:00,Laboratory,Lab Technician
+HOSP_0076,Doctor Reviews Results,2026-02-20 13:21:00,Outpatient,Doctor
+HOSP_0076,Imaging Ordered,2026-02-20 13:44:00,Radiology,Doctor
+HOSP_0076,Imaging Completed,2026-02-20 13:49:00,Radiology,Radiology Technician
+HOSP_0076,Doctor Reviews Imaging,2026-02-20 13:57:00,Emergency,Doctor
+HOSP_0076,Treatment/Prescription,2026-02-20 14:20:00,Outpatient,Doctor
+HOSP_0076,Payment Completed,2026-02-20 14:38:00,Billing,Billing Clerk
+HOSP_0076,Patient Discharged,2026-02-20 14:55:00,Outpatient,Nurse
+HOSP_0077,Patient Registration,2026-03-16 14:39:00,Front Desk,Registration Clerk
+HOSP_0077,Initial Triage,2026-03-16 14:44:00,Emergency/Triage,Triage Nurse
+HOSP_0077,Doctor Consultation,2026-03-16 14:56:00,Outpatient,Doctor
+HOSP_0077,Lab Test Ordered,2026-03-16 15:13:00,Outpatient,Doctor
+HOSP_0077,Sample Collected,2026-03-16 15:30:00,Laboratory,Lab Technician
+HOSP_0077,Lab Results Available,2026-03-16 15:34:00,Laboratory,Lab Technician
+HOSP_0077,Doctor Reviews Results,2026-03-16 15:38:00,Outpatient,Doctor
+HOSP_0077,Imaging Ordered,2026-03-16 15:52:00,Radiology,Doctor
+HOSP_0077,Imaging Completed,2026-03-16 16:04:00,Radiology,Radiology Technician
+HOSP_0077,Doctor Reviews Imaging,2026-03-16 16:09:00,Emergency,Doctor
+HOSP_0077,Admission Decision,2026-03-16 16:32:00,Outpatient/Emergency,Doctor
+HOSP_0077,Bed Assigned,2026-03-16 16:37:00,Inpatient Ward,Bed Manager
+HOSP_0077,Patient Transferred to Ward,2026-03-16 16:59:00,Inpatient Ward,Nurse
+HOSP_0077,Treatment Completed,2026-03-16 17:21:00,Inpatient Ward,Doctor
+HOSP_0077,Discharge Processed,2026-03-16 17:40:00,Discharge Desk,Discharge Clerk
+HOSP_0078,Patient Registration,2026-03-01 16:54:00,Front Desk,Registration Clerk
+HOSP_0078,Initial Triage,2026-03-01 16:58:00,Emergency/Triage,Triage Nurse
+HOSP_0078,Doctor Consultation,2026-03-01 17:15:00,Outpatient,Doctor
+HOSP_0078,Lab Test Ordered,2026-03-01 17:21:00,Outpatient,Doctor
+HOSP_0078,Sample Collected,2026-03-01 17:34:00,Laboratory,Lab Technician
+HOSP_0078,Lab Results Available,2026-03-01 17:59:00,Laboratory,Lab Technician
+HOSP_0078,Doctor Reviews Results,2026-03-01 18:04:00,Outpatient,Doctor
+HOSP_0078,Treatment/Prescription,2026-03-01 18:23:00,Outpatient,Doctor
+HOSP_0078,Payment Completed,2026-03-01 18:46:00,Billing,Billing Clerk
+HOSP_0078,Patient Discharged,2026-03-01 18:54:00,Outpatient,Nurse
+HOSP_0079,Patient Registration,2026-02-01 19:04:00,Front Desk,Registration Clerk
+HOSP_0079,Initial Triage,2026-02-01 19:28:00,Emergency/Triage,Triage Nurse
+HOSP_0079,Doctor Consultation,2026-02-01 19:50:00,Outpatient,Doctor
+HOSP_0079,Lab Test Ordered,2026-02-01 19:54:00,Outpatient,Doctor
+HOSP_0079,Sample Collected,2026-02-01 20:17:00,Laboratory,Lab Technician
+HOSP_0079,Lab Results Available,2026-02-01 20:40:00,Laboratory,Lab Technician
+HOSP_0079,Doctor Reviews Results,2026-02-01 20:53:00,Outpatient,Doctor
+HOSP_0079,Treatment/Prescription,2026-02-01 20:58:00,Outpatient,Doctor
+HOSP_0079,Payment Completed,2026-02-01 21:11:00,Billing,Billing Clerk
+HOSP_0079,Patient Discharged,2026-02-01 21:17:00,Outpatient,Nurse
+HOSP_0080,Patient Registration,2026-03-28 13:49:00,Front Desk,Registration Clerk
+HOSP_0080,Initial Triage,2026-03-28 14:01:00,Emergency/Triage,Triage Nurse
+HOSP_0080,Doctor Consultation,2026-03-28 14:24:00,Outpatient,Doctor
+HOSP_0080,Repeat Doctor Consultation,2026-03-28 14:49:00,Outpatient,Doctor
+HOSP_0080,Treatment/Prescription,2026-03-28 15:13:00,Outpatient,Doctor
+HOSP_0080,Payment Completed,2026-03-28 15:28:00,Billing,Billing Clerk
+HOSP_0080,Patient Discharged,2026-03-28 15:35:00,Outpatient,Nurse
+HOSP_0081,Patient Registration,2026-03-18 19:05:00,Front Desk,Registration Clerk
+HOSP_0081,Initial Triage,2026-03-18 19:21:00,Emergency/Triage,Triage Nurse
+HOSP_0081,Doctor Consultation,2026-03-18 19:40:00,Outpatient,Doctor
+HOSP_0081,Lab Test Ordered,2026-03-18 19:54:00,Outpatient,Doctor
+HOSP_0081,Sample Collected,2026-03-18 19:57:00,Laboratory,Lab Technician
+HOSP_0081,Lab Results Available,2026-03-18 20:11:00,Laboratory,Lab Technician
+HOSP_0081,Doctor Reviews Results,2026-03-18 20:23:00,Outpatient,Doctor
+HOSP_0081,Admission Decision,2026-03-18 20:31:00,Outpatient/Emergency,Doctor
+HOSP_0081,Bed Assigned,2026-03-18 20:40:00,Inpatient Ward,Bed Manager
+HOSP_0081,Patient Transferred to Ward,2026-03-18 20:53:00,Inpatient Ward,Nurse
+HOSP_0081,Treatment Completed,2026-03-18 21:11:00,Inpatient Ward,Doctor
+HOSP_0081,Discharge Processed,2026-03-18 21:20:00,Discharge Desk,Discharge Clerk
+HOSP_0082,Patient Registration,2026-01-18 10:00:00,Front Desk,Registration Clerk
+HOSP_0082,Initial Triage,2026-01-18 10:07:00,Emergency/Triage,Triage Nurse
+HOSP_0082,Doctor Consultation,2026-01-18 10:29:00,Outpatient,Doctor
+HOSP_0082,Repeat Doctor Consultation,2026-01-18 10:44:00,Outpatient,Doctor
+HOSP_0082,Treatment/Prescription,2026-01-18 10:51:00,Outpatient,Doctor
+HOSP_0082,Payment Completed,2026-01-18 10:59:00,Billing,Billing Clerk
+HOSP_0082,Patient Discharged,2026-01-18 11:07:00,Outpatient,Nurse
+HOSP_0083,Patient Registration,2026-03-30 20:09:00,Front Desk,Registration Clerk
+HOSP_0083,Initial Triage,2026-03-30 20:27:00,Emergency/Triage,Triage Nurse
+HOSP_0083,Doctor Consultation,2026-03-30 20:36:00,Outpatient,Doctor
+HOSP_0083,Lab Test Ordered,2026-03-30 20:50:00,Outpatient,Doctor
+HOSP_0083,Sample Collected,2026-03-30 21:14:00,Laboratory,Lab Technician
+HOSP_0083,Lab Results Available,2026-03-30 21:35:00,Laboratory,Lab Technician
+HOSP_0083,Doctor Reviews Results,2026-03-30 21:52:00,Outpatient,Doctor
+HOSP_0083,Imaging Ordered,2026-03-30 22:09:00,Radiology,Doctor
+HOSP_0083,Imaging Completed,2026-03-30 22:21:00,Radiology,Radiology Technician
+HOSP_0083,Doctor Reviews Imaging,2026-03-30 22:36:00,Emergency,Doctor
+HOSP_0083,Treatment/Prescription,2026-03-30 22:55:00,Outpatient,Doctor
+HOSP_0083,Payment Completed,2026-03-30 23:14:00,Billing,Billing Clerk
+HOSP_0083,Patient Discharged,2026-03-30 23:30:00,Outpatient,Nurse
+HOSP_0084,Patient Registration,2026-01-26 20:40:00,Front Desk,Registration Clerk
+HOSP_0084,Initial Triage,2026-01-26 20:56:00,Emergency/Triage,Triage Nurse
+HOSP_0084,Doctor Consultation,2026-01-26 21:01:00,Outpatient,Doctor
+HOSP_0084,Lab Test Ordered,2026-01-26 21:11:00,Outpatient,Doctor
+HOSP_0084,Sample Collected,2026-01-26 21:28:00,Laboratory,Lab Technician
+HOSP_0084,Lab Results Available,2026-01-26 21:42:00,Laboratory,Lab Technician
+HOSP_0084,Doctor Reviews Results,2026-01-26 21:45:00,Outpatient,Doctor
+HOSP_0084,Imaging Ordered,2026-01-26 22:01:00,Radiology,Doctor
+HOSP_0084,Imaging Completed,2026-01-26 22:05:00,Radiology,Radiology Technician
+HOSP_0084,Doctor Reviews Imaging,2026-01-26 22:20:00,Emergency,Doctor
+HOSP_0084,Admission Decision,2026-01-26 22:39:00,Outpatient/Emergency,Doctor
+HOSP_0084,Bed Assigned,2026-01-26 22:53:00,Inpatient Ward,Bed Manager
+HOSP_0084,Patient Transferred to Ward,2026-01-26 23:03:00,Inpatient Ward,Nurse
+HOSP_0084,Treatment Completed,2026-01-26 23:18:00,Inpatient Ward,Doctor
+HOSP_0084,Discharge Processed,2026-01-26 23:23:00,Discharge Desk,Discharge Clerk
+HOSP_0085,Patient Registration,2026-01-29 07:28:00,Front Desk,Registration Clerk
+HOSP_0085,Initial Triage,2026-01-29 07:40:00,Emergency/Triage,Triage Nurse
+HOSP_0085,Doctor Consultation,2026-01-29 07:58:00,Outpatient,Doctor
+HOSP_0085,Treatment/Prescription,2026-01-29 08:23:00,Outpatient,Doctor
+HOSP_0085,Payment Completed,2026-01-29 08:30:00,Billing,Billing Clerk
+HOSP_0085,Patient Discharged,2026-01-29 08:55:00,Outpatient,Nurse
+HOSP_0086,Patient Registration,2026-02-27 17:30:00,Front Desk,Registration Clerk
+HOSP_0086,Initial Triage,2026-02-27 17:52:00,Emergency/Triage,Triage Nurse
+HOSP_0086,Doctor Consultation,2026-02-27 18:11:00,Outpatient,Doctor
+HOSP_0086,Treatment/Prescription,2026-02-27 18:27:00,Outpatient,Doctor
+HOSP_0086,Payment Completed,2026-02-27 18:33:00,Billing,Billing Clerk
+HOSP_0086,Patient Discharged,2026-02-27 18:45:00,Outpatient,Nurse
+HOSP_0087,Patient Registration,2026-02-08 09:26:00,Front Desk,Registration Clerk
+HOSP_0087,Initial Triage,2026-02-08 09:46:00,Emergency/Triage,Triage Nurse
+HOSP_0087,Doctor Consultation,2026-02-08 09:49:00,Outpatient,Doctor
+HOSP_0087,Repeat Doctor Consultation,2026-02-08 10:12:00,Outpatient,Doctor
+HOSP_0087,Treatment/Prescription,2026-02-08 10:31:00,Outpatient,Doctor
+HOSP_0087,Payment Completed,2026-02-08 10:52:00,Billing,Billing Clerk
+HOSP_0087,Patient Discharged,2026-02-08 11:02:00,Outpatient,Nurse
+HOSP_0088,Patient Registration,2026-01-19 12:18:00,Front Desk,Registration Clerk
+HOSP_0088,Initial Triage,2026-01-19 12:37:00,Emergency/Triage,Triage Nurse
+HOSP_0088,Doctor Consultation,2026-01-19 12:56:00,Outpatient,Doctor
+HOSP_0088,Repeat Doctor Consultation,2026-01-19 13:16:00,Outpatient,Doctor
+HOSP_0088,Lab Test Ordered,2026-01-19 13:19:00,Outpatient,Doctor
+HOSP_0088,Sample Collected,2026-01-19 13:34:00,Laboratory,Lab Technician
+HOSP_0088,Lab Results Available,2026-01-19 13:52:00,Laboratory,Lab Technician
+HOSP_0088,Doctor Reviews Results,2026-01-19 13:56:00,Outpatient,Doctor
+HOSP_0088,Treatment/Prescription,2026-01-19 14:19:00,Outpatient,Doctor
+HOSP_0088,Payment Completed,2026-01-19 14:34:00,Billing,Billing Clerk
+HOSP_0088,Patient Discharged,2026-01-19 14:48:00,Outpatient,Nurse
+HOSP_0089,Patient Registration,2026-02-02 19:45:00,Front Desk,Registration Clerk
+HOSP_0089,Initial Triage,2026-02-02 19:58:00,Emergency/Triage,Triage Nurse
+HOSP_0089,Doctor Consultation,2026-02-02 20:05:00,Outpatient,Doctor
+HOSP_0089,Treatment/Prescription,2026-02-02 20:09:00,Outpatient,Doctor
+HOSP_0089,Payment Completed,2026-02-02 20:23:00,Billing,Billing Clerk
+HOSP_0089,Patient Discharged,2026-02-02 20:43:00,Outpatient,Nurse
+HOSP_0090,Patient Registration,2026-03-24 09:59:00,Front Desk,Registration Clerk
+HOSP_0090,Initial Triage,2026-03-24 10:08:00,Emergency/Triage,Triage Nurse
+HOSP_0090,Doctor Consultation,2026-03-24 10:12:00,Outpatient,Doctor
+HOSP_0090,Lab Test Ordered,2026-03-24 10:25:00,Outpatient,Doctor
+HOSP_0090,Sample Collected,2026-03-24 10:37:00,Laboratory,Lab Technician
+HOSP_0090,Lab Results Available,2026-03-24 10:56:00,Laboratory,Lab Technician
+HOSP_0090,Doctor Reviews Results,2026-03-24 11:11:00,Outpatient,Doctor
+HOSP_0090,Admission Decision,2026-03-24 11:31:00,Outpatient/Emergency,Doctor
+HOSP_0090,Bed Assigned,2026-03-24 11:49:00,Inpatient Ward,Bed Manager
+HOSP_0090,Patient Transferred to Ward,2026-03-24 12:00:00,Inpatient Ward,Nurse
+HOSP_0090,Treatment Completed,2026-03-24 12:04:00,Inpatient Ward,Doctor
+HOSP_0090,Discharge Processed,2026-03-24 12:27:00,Discharge Desk,Discharge Clerk
+HOSP_0091,Patient Registration,2026-02-06 13:05:00,Front Desk,Registration Clerk
+HOSP_0091,Initial Triage,2026-02-06 13:20:00,Emergency/Triage,Triage Nurse
+HOSP_0091,Doctor Consultation,2026-02-06 13:33:00,Outpatient,Doctor
+HOSP_0091,Lab Test Ordered,2026-02-06 13:41:00,Outpatient,Doctor
+HOSP_0091,Sample Collected,2026-02-06 13:59:00,Laboratory,Lab Technician
+HOSP_0091,Lab Results Available,2026-02-06 14:24:00,Laboratory,Lab Technician
+HOSP_0091,Doctor Reviews Results,2026-02-06 14:42:00,Outpatient,Doctor
+HOSP_0091,Admission Decision,2026-02-06 14:56:00,Outpatient/Emergency,Doctor
+HOSP_0091,Bed Assigned,2026-02-06 15:15:00,Inpatient Ward,Bed Manager
+HOSP_0091,Patient Transferred to Ward,2026-02-06 15:26:00,Inpatient Ward,Nurse
+HOSP_0091,Treatment Completed,2026-02-06 15:31:00,Inpatient Ward,Doctor
+HOSP_0091,Discharge Processed,2026-02-06 15:47:00,Discharge Desk,Discharge Clerk
+HOSP_0092,Patient Registration,2026-02-25 17:16:00,Front Desk,Registration Clerk
+HOSP_0092,Initial Triage,2026-02-25 17:32:00,Emergency/Triage,Triage Nurse
+HOSP_0092,Doctor Consultation,2026-02-25 17:40:00,Outpatient,Doctor
+HOSP_0092,Lab Test Ordered,2026-02-25 18:05:00,Outpatient,Doctor
+HOSP_0092,Sample Collected,2026-02-25 18:22:00,Laboratory,Lab Technician
+HOSP_0092,Lab Results Available,2026-02-25 18:36:00,Laboratory,Lab Technician
+HOSP_0092,Doctor Reviews Results,2026-02-25 18:53:00,Outpatient,Doctor
+HOSP_0092,Admission Decision,2026-02-25 18:57:00,Outpatient/Emergency,Doctor
+HOSP_0092,Bed Assigned,2026-02-25 19:11:00,Inpatient Ward,Bed Manager
+HOSP_0092,Patient Transferred to Ward,2026-02-25 19:33:00,Inpatient Ward,Nurse
+HOSP_0092,Treatment Completed,2026-02-25 19:49:00,Inpatient Ward,Doctor
+HOSP_0092,Discharge Processed,2026-02-25 20:00:00,Discharge Desk,Discharge Clerk
+HOSP_0093,Patient Registration,2026-01-08 08:16:00,Front Desk,Registration Clerk
+HOSP_0093,Initial Triage,2026-01-08 08:37:00,Emergency/Triage,Triage Nurse
+HOSP_0093,Doctor Consultation,2026-01-08 08:41:00,Outpatient,Doctor
+HOSP_0093,Lab Test Ordered,2026-01-08 09:03:00,Outpatient,Doctor
+HOSP_0093,Sample Collected,2026-01-08 09:10:00,Laboratory,Lab Technician
+HOSP_0093,Lab Results Available,2026-01-08 09:34:00,Laboratory,Lab Technician
+HOSP_0093,Doctor Reviews Results,2026-01-08 09:51:00,Outpatient,Doctor
+HOSP_0093,Imaging Ordered,2026-01-08 10:05:00,Radiology,Doctor
+HOSP_0093,Imaging Completed,2026-01-08 10:19:00,Radiology,Radiology Technician
+HOSP_0093,Doctor Reviews Imaging,2026-01-08 10:36:00,Emergency,Doctor
+HOSP_0093,Admission Decision,2026-01-08 10:41:00,Outpatient/Emergency,Doctor
+HOSP_0093,Bed Assigned,2026-01-08 11:02:00,Inpatient Ward,Bed Manager
+HOSP_0093,Patient Transferred to Ward,2026-01-08 11:09:00,Inpatient Ward,Nurse
+HOSP_0093,Treatment Completed,2026-01-08 11:28:00,Inpatient Ward,Doctor
+HOSP_0093,Discharge Processed,2026-01-08 11:42:00,Discharge Desk,Discharge Clerk
+HOSP_0094,Patient Registration,2026-02-10 18:05:00,Front Desk,Registration Clerk
+HOSP_0094,Initial Triage,2026-02-10 18:25:00,Emergency/Triage,Triage Nurse
+HOSP_0094,Doctor Consultation,2026-02-10 18:31:00,Outpatient,Doctor
+HOSP_0094,Treatment/Prescription,2026-02-10 18:42:00,Outpatient,Doctor
+HOSP_0094,Payment Completed,2026-02-10 18:53:00,Billing,Billing Clerk
+HOSP_0094,Patient Discharged,2026-02-10 19:18:00,Outpatient,Nurse
+HOSP_0095,Patient Registration,2026-01-28 17:26:00,Front Desk,Registration Clerk
+HOSP_0095,Initial Triage,2026-01-28 17:51:00,Emergency/Triage,Triage Nurse
+HOSP_0095,Doctor Consultation,2026-01-28 18:08:00,Outpatient,Doctor
+HOSP_0095,Treatment/Prescription,2026-01-28 18:13:00,Outpatient,Doctor
+HOSP_0095,Payment Completed,2026-01-28 18:37:00,Billing,Billing Clerk
+HOSP_0095,Patient Discharged,2026-01-28 18:50:00,Outpatient,Nurse
+HOSP_0096,Patient Registration,2026-02-14 19:06:00,Front Desk,Registration Clerk
+HOSP_0096,Initial Triage,2026-02-14 19:25:00,Emergency/Triage,Triage Nurse
+HOSP_0096,Doctor Consultation,2026-02-14 19:35:00,Outpatient,Doctor
+HOSP_0096,Treatment/Prescription,2026-02-14 19:41:00,Outpatient,Doctor
+HOSP_0096,Payment Completed,2026-02-14 19:50:00,Billing,Billing Clerk
+HOSP_0096,Patient Discharged,2026-02-14 19:57:00,Outpatient,Nurse
+HOSP_0097,Patient Registration,2026-03-05 07:26:00,Front Desk,Registration Clerk
+HOSP_0097,Initial Triage,2026-03-05 07:44:00,Emergency/Triage,Triage Nurse
+HOSP_0097,Doctor Consultation,2026-03-05 08:03:00,Outpatient,Doctor
+HOSP_0097,Lab Test Ordered,2026-03-05 08:19:00,Outpatient,Doctor
+HOSP_0097,Sample Collected,2026-03-05 08:35:00,Laboratory,Lab Technician
+HOSP_0097,Lab Results Available,2026-03-05 08:56:00,Laboratory,Lab Technician
+HOSP_0097,Doctor Reviews Results,2026-03-05 09:01:00,Outpatient,Doctor
+HOSP_0097,Treatment/Prescription,2026-03-05 09:08:00,Outpatient,Doctor
+HOSP_0097,Payment Completed,2026-03-05 09:21:00,Billing,Billing Clerk
+HOSP_0097,Patient Discharged,2026-03-05 09:44:00,Outpatient,Nurse
+HOSP_0098,Patient Registration,2026-02-27 14:57:00,Front Desk,Registration Clerk
+HOSP_0098,Initial Triage,2026-02-27 15:16:00,Emergency/Triage,Triage Nurse
+HOSP_0098,Doctor Consultation,2026-02-27 15:28:00,Outpatient,Doctor
+HOSP_0098,Lab Test Ordered,2026-02-27 15:33:00,Outpatient,Doctor
+HOSP_0098,Sample Collected,2026-02-27 15:44:00,Laboratory,Lab Technician
+HOSP_0098,Lab Results Available,2026-02-27 15:53:00,Laboratory,Lab Technician
+HOSP_0098,Doctor Reviews Results,2026-02-27 16:16:00,Outpatient,Doctor
+HOSP_0098,Imaging Ordered,2026-02-27 16:36:00,Radiology,Doctor
+HOSP_0098,Imaging Completed,2026-02-27 16:47:00,Radiology,Radiology Technician
+HOSP_0098,Doctor Reviews Imaging,2026-02-27 16:54:00,Emergency,Doctor
+HOSP_0098,Admission Decision,2026-02-27 17:17:00,Outpatient/Emergency,Doctor
+HOSP_0098,Bed Assigned,2026-02-27 17:29:00,Inpatient Ward,Bed Manager
+HOSP_0098,Patient Transferred to Ward,2026-02-27 17:51:00,Inpatient Ward,Nurse
+HOSP_0098,Treatment Completed,2026-02-27 18:11:00,Inpatient Ward,Doctor
+HOSP_0098,Discharge Processed,2026-02-27 18:16:00,Discharge Desk,Discharge Clerk
+HOSP_0099,Patient Registration,2026-03-24 09:52:00,Front Desk,Registration Clerk
+HOSP_0099,Initial Triage,2026-03-24 10:13:00,Emergency/Triage,Triage Nurse
+HOSP_0099,Doctor Consultation,2026-03-24 10:24:00,Outpatient,Doctor
+HOSP_0099,Lab Test Ordered,2026-03-24 10:47:00,Outpatient,Doctor
+HOSP_0099,Sample Collected,2026-03-24 10:56:00,Laboratory,Lab Technician
+HOSP_0099,Lab Results Available,2026-03-24 11:17:00,Laboratory,Lab Technician
+HOSP_0099,Doctor Reviews Results,2026-03-24 11:33:00,Outpatient,Doctor
+HOSP_0099,Treatment/Prescription,2026-03-24 11:55:00,Outpatient,Doctor
+HOSP_0099,Payment Completed,2026-03-24 12:18:00,Billing,Billing Clerk
+HOSP_0099,Patient Discharged,2026-03-24 12:21:00,Outpatient,Nurse
+HOSP_0100,Patient Registration,2026-03-22 16:18:00,Front Desk,Registration Clerk
+HOSP_0100,Initial Triage,2026-03-22 16:43:00,Emergency/Triage,Triage Nurse
+HOSP_0100,Doctor Consultation,2026-03-22 16:47:00,Outpatient,Doctor
+HOSP_0100,Treatment/Prescription,2026-03-22 16:55:00,Outpatient,Doctor
+HOSP_0100,Payment Completed,2026-03-22 17:12:00,Billing,Billing Clerk
+HOSP_0100,Patient Discharged,2026-03-22 17:28:00,Outpatient,Nurse
