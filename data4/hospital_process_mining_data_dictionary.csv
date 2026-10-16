@@ -1,0 +1,6 @@
+0,1
+case_id,"Unique patient-journey case identifier (e.g., HOSP_0001)"
+activity,Event/activity performed during the patient journey
+timestamp,Date and time when the activity occurred
+department,Hospital department responsible for the event
+resource,Role/person type performing the event
