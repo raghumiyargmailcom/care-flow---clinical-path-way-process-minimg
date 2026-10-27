@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: dbt-bigquery-512805
+    schema: process_mining
+    tables:
+      - name: events
