@@ -28,6 +28,7 @@ select case_id,
     department,
     resource,
     next_activity,
+    next_event_timestamp,
     datetime_diff(next_event_timestamp,
     event_timestamp,minute) as waiting_time
 from sequential_event

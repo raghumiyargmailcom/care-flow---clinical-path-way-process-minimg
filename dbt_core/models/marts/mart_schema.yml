@@ -1,0 +1,27 @@
+
+version: 2
+
+models:
+  - name: patient_summary
+    description: "One summary row per patient case"
+    columns:
+      - name: case_id
+        description: "Patient case identifier"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: total_events
+        data_tests:
+          - not_null
+
+  - name: mart_transition
+    description: "Waiting-time metrics for each activity transition"
+    columns:
+      - name: activity
+        data_tests:
+          - not_null
+
+      - name: next_activity
+        data_tests:
+          - not_null

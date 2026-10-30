@@ -1,0 +1,32 @@
+
+version: 2
+
+models:
+  - name: int_patient_event
+    description: "Intermediate model that calculates patient event transitions and waiting times."
+
+    columns:
+      - name: case_id
+        description: "Unique identifier for each patient case."
+        data_tests:
+          - not_null
+
+      - name: activity
+        description: "Current activity in the patient pathway."
+        data_tests:
+          - not_null
+
+      - name: event_timestamp
+        description: "Timestamp when the current activity occurred."
+        data_tests:
+          - not_null
+
+      - name: next_activity
+        description: "Next activity in the same patient case."
+
+      - name: next_event_timestamp
+        description: "Timestamp of the next activity."
+
+      - name: waiting_time
+        description: "Minutes between the current event and the next event."
+
