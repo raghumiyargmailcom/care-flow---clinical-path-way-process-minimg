@@ -1,0 +1,101 @@
+Overview
+CareFlow is a clinical pathway process-mining project that studies how patients move through hospital activities. Using event-log data, the project examines activity sequences, transition frequency, and the time between consecutive events.
+
+The workflow combines Python and PM4Py for process analysis with Google BigQuery and dbt for cloud-based data preparation. Power BI dashboard development is the next planned stage for communicating the findings through interactive visuals.
+Project Goals
+- Map common patient pathways through hospital activities.
+- Analyze directly-follows transitions and their frequency.
+- Calculate time intervals between consecutive events.
+- Establish a tested, repeatable data-transformation workflow.
+- Prepare curated data for an interactive BI dashboard.
+Technology Stack
+Tool	Role in the project
+Python	Data preparation and analysis
+PM4Py	Process discovery and activity-transition analysis
+Jupyter Notebook	Exploratory analysis and process visualizations
+Google BigQuery	Cloud data warehouse
+dbt	Source testing, staging, and SQL transformations
+Power BI	Planned dashboard and reporting layer
+
+
+Dataset at a Glance
+The event log used in the current analysis contains:
+Metric	Value
+Event records	953
+Unique cases	100
+Unique activities	19
+
+
+The working data includes fields such as case_id, activity, timestamp, department, and resource.
+Data note: These figures describe the dataset used in the current analysis. They should be rechecked against the final warehouse models before being used as production reporting totals.
+
+Work Completed
+1. Process Mining with PM4Py
+- Explored patient event sequences and activity relationships.
+- Analyzed directly-follows transitions.
+- Calculated elapsed time between consecutive events within each case.
+- Produced transition-level metrics for occurrence count, patient count, average time, and median time.
+2. Initial Findings
+The following examples are from the current transition analysis:
+Activity transition	Occurrences / patients*	Average interval	Median interval
+Patient Registration → Initial Triage	100	15.88 min	17 min
+Initial Triage → Doctor Consultation	100	12.41 min	11.5 min
+Treatment → Payment	69	15.54 min	16 min
+Payment Completed → Patient Discharged	69	14.58 min	15 min
+
+
+*The available analysis reported these counts for the listed transitions. Validate whether counts represent unique patients or transition occurrences in the final model before making direct comparisons.
+3. BigQuery Warehouse
+- Loaded the raw event log into the BigQuery process_mining dataset as events.
+- Configured dbt to connect to BigQuery using OAuth.
+- Defined the raw table as the dbt source raw_data.events.
+4. dbt Transformation Workflow
+- Added not_null tests for case_id, activity, and timestamp.
+- Ran the three source tests successfully.
+- Created the stg_events staging model as a BigQuery view.
+- Authored the intermediate model int_patient_event.sql to derive the next activity, next event timestamp, and waiting time in minutes.
+- Compiled the intermediate model successfully.
+Status accuracy: The intermediate model has been authored and compiled; its successful execution and the final mart models still need to be verified.
+
+Architecture
+```mermaid
+flowchart TD
+    A[Hospital Event Log CSV] --> B[Google BigQuery<br/>Raw: events]
+    B --> C[dbt Source Tests]
+    C --> D[stg_events<br/>Staging View]
+    D --> E[int_patient_event<br/>Intermediate Model]
+    E --> F[patient_summary<br/>Planned Mart]
+    E --> G[mart_transition<br/>Planned Mart]
+    F --> H[Power BI Dashboard<br/>Planned]
+    G --> H
+```
+Next Steps
+- [ ] Run and validate int_patient_event in BigQuery.
+- [ ] Verify waiting-time calculations and event ordering.
+- [ ] Create or verify the patient_summary mart.
+- [ ] Create or verify the mart_transition mart.
+- [ ] Add appropriate dbt tests and run dbt build.
+- [ ] Connect Power BI to BigQuery.
+- [ ] Build and validate patient, transition, and waiting-time visuals.
+- [ ] Add dashboard screenshots and final findings.
+Planned Power BI Dashboard
+The BI layer is planned to use two curated tables:
+- patient_summary — case-level metrics and patient pathway summaries, based on the final model definition.
+- mart_transition — activity-to-next-activity metrics, including counts and waiting-time measures.
+Potential visuals include KPI cards, transition-frequency charts, average-versus-median waiting-time comparisons, and patient pathway views supported by the final data.
+Repository Structure
+care-flow---clinical-path-way-process-minimg/
+├── data4/
+│   ├── hospital_process_mining_data_dictionary.csv
+│   └── hospital_process_mining_event_log-1.csv
+├── notebook/
+│   └── pm4py_work.ipynb
+└── dbt_core/
+    ├── dbt_project.yml
+    └── models/
+        ├── staging/
+        │   ├── source.yml
+        │   └── stg_events.sql
+        └── intermediate/
+            └── int_patient_event.sql
+This is the intended high-level layout based on the files discussed during development. Adjust paths and filenames if the current repository differs.
