@@ -1,0 +1,24 @@
+activity,next_activity,total_transitions,unique_patients,avg_waiting_minutes,median_waiting_minutes,min_waiting_minutes,max_waiting_minutes,p90_waiting_minutes
+repeat doctor consultation,lab test ordered,4,4,10.5,4,3,20,20
+doctor reviews imaging,treatment/prescription,5,5,18.8,19,12,23,23
+repeat doctor consultation,treatment/prescription,5,5,14.6,17,6,24,24
+doctor consultation,repeat doctor consultation,9,9,16.67,17,6,25,25
+doctor reviews imaging,admission decision,9,9,17.22,19,3,25,25
+doctor reviews results,imaging ordered,14,14,15.0,16,3,24,23
+imaging ordered,imaging completed,14,14,14.29,13,4,25,24
+imaging completed,doctor reviews imaging,14,14,15.36,17,5,25,21
+doctor reviews results,admission decision,22,22,14.41,14,4,25,24
+doctor reviews results,treatment/prescription,24,24,14.46,15,3,25,23
+admission decision,bed assigned,31,31,13.81,14,3,24,21
+treatment completed,discharge processed,31,31,13.87,14,4,25,23
+bed assigned,patient transferred to ward,31,31,12.68,11,4,24,22
+patient transferred to ward,treatment completed,31,31,13.52,13,3,25,23
+doctor consultation,treatment/prescription,35,35,14.31,16,4,25,21
+doctor consultation,lab test ordered,56,56,12.27,12,3,25,23
+sample collected,lab results available,60,60,15.15,16,3,25,23
+lab results available,doctor reviews results,60,60,12.77,13,3,25,22
+lab test ordered,sample collected,60,60,13.45,13,3,24,23
+treatment/prescription,payment completed,69,69,15.54,16,3,25,24
+payment completed,patient discharged,69,69,14.58,15,3,25,24
+patient registration,initial triage,100,100,15.88,17,4,25,23
+initial triage,doctor consultation,100,100,12.41,11,3,25,22
