@@ -1,0 +1,21 @@
+Activity_ID,Activity_Name,Department,Activity_Category,Expected_Duration_Minutes,Is_Required,Description
+ACT-001,Registration,Admissions,Registration,10,True,Patient identity verification and administrative intake at the admissions desk.
+ACT-002,Triage,Emergency,Assessment,15,True,Nurse-led initial assessment to assign priority level using standardised triage protocol.
+ACT-003,Doctor Consultation,Emergency,Assessment,20,True,Initial physician assessment of patient condition and determination of investigation plan.
+ACT-004,Blood Test,Pathology,Diagnostic,30,False,Collection and analysis of blood samples for biochemical and haematological markers.
+ACT-005,X-Ray,Radiology,Diagnostic,20,False,Plain radiographic imaging of the requested body region.
+ACT-006,CT Scan,Radiology,Diagnostic,45,False,Computed tomography imaging; typically used for complex or high-priority presentations.
+ACT-007,ECG,Cardiology,Diagnostic,15,False,Electrocardiogram recording to assess cardiac rhythm and electrical activity.
+ACT-008,Ultrasound,Radiology,Diagnostic,30,False,Ultrasound imaging for soft-tissue and abdominal assessment.
+ACT-009,Treatment,Emergency,Treatment,60,True,"Administration of therapeutic interventions including medication, wound care, or procedures."
+ACT-010,Specialist Referral,Emergency,Assessment,30,False,Referral and handover to an inpatient or outpatient specialist team.
+ACT-011,Reassessment,Emergency,Assessment,15,False,Follow-up clinical assessment after initial treatment or investigation results.
+ACT-012,Medication Administration,Nursing,Treatment,10,False,Preparation and administration of prescribed medications by nursing staff.
+ACT-013,Admission,Inpatient Ward,Disposition,20,False,Formal admission to an inpatient ward following clinical decision.
+ACT-014,Transfer,Transport,Disposition,25,False,"Patient transfer to another ward, unit, or external facility."
+ACT-015,Discharge,Admissions,Disposition,15,False,Completion of administrative discharge process and provision of after-care instructions.
+ACT-016,Pain Assessment,Nursing,Assessment,5,False,"Structured pain scoring using a validated scale (e.g., NRS)."
+ACT-017,IV Line Insertion,Nursing,Treatment,10,False,Insertion of an intravenous cannula for fluid or medication delivery.
+ACT-018,Observation,Emergency,Assessment,60,False,Monitored waiting period for condition evolution before further decision.
+ACT-019,Social Work Referral,Social Services,Assessment,30,False,"Referral to social work team for safeguarding, housing, or discharge planning needs."
+ACT-020,Discharge Planning,Nursing,Disposition,20,False,"Coordination of post-discharge care, prescriptions, and follow-up appointments."

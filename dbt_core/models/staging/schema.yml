@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_hospital_events
+    description: "Staged and cleaned hospital process mining events with standardized resources, timestamps, and surrogate keys."
+    columns:
+      - name: event_id
+        description: "MD5 surrogate primary key representing the unique event occurrence."
+        tests:
+          - unique
+          - not_null
+      - name: case_id
+        description: "Identifier for the clinical patient journey."
+        tests:
+          - not_null
+      - name: activity_name
+        description: "Cleaned clinical activity name."
+        tests:
+          - not_null
+      - name: activity_timestamp
+        description: "Event execution timestamp."
+        tests:
+          - not_null
+      - name: department
+        description: "Department performing the activity."
+      - name: resource_role
+        description: "Standardized staff role executing the event."
+        tests:
+          - not_null
+      - name: activity_date
+        description: "Date component of the event timestamp."
+      - name: activity_hour
+        description: "Hour of day (0-23) when the event occurred."
+      - name: day_of_week
+        description: "Day of week (1=Sunday, 7=Saturday)."
+      - name: is_weekend
+        description: "Flag indicating whether event occurred on a weekend."
+
+  - name: stg_activity_reference
+    description: "Staged reference table for clinical activity categorization, departments, and SLA benchmarks."
+    columns:
+      - name: activity_name
+        description: "Primary key: name of clinical activity."
+        tests:
+          - unique
+          - not_null
+      - name: activity_category
+        description: "High-level classification (Triage, Consultation, Inpatient, etc.)."
+      - name: standard_department
+        description: "Default department for this activity."
+      - name: is_milestone
+        description: "Boolean indicating if activity is a clinical milestone."
+      - name: sla_expected_duration_minutes
+        description: "Expected SLA time in minutes."
+

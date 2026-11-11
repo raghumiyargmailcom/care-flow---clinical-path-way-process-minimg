@@ -1,0 +1,21 @@
+activity_name,activity_category,standard_department,is_milestone,sla_expected_duration_minutes
+Patient Registration,Administrative,Front Desk,true,15
+Initial Triage,Triage,Emergency/Triage,true,15
+Doctor Consultation,Clinical Consultation,Outpatient,true,30
+Repeat Doctor Consultation,Clinical Consultation,Outpatient,false,20
+Lab Test Ordered,Laboratory,Outpatient,false,10
+Sample Collected,Laboratory,Laboratory,false,15
+Lab Results Available,Laboratory,Laboratory,true,45
+Doctor Reviews Results,Clinical Consultation,Outpatient,false,15
+Imaging Ordered,Radiology,Outpatient,false,10
+Imaging Completed,Radiology,Radiology,true,40
+Doctor Reviews Imaging,Clinical Consultation,Outpatient,false,15
+Treatment/Prescription,Treatment,Outpatient,true,20
+Admission Decision,Inpatient Care,Outpatient,true,15
+Bed Assigned,Inpatient Care,Inpatient Ward,false,30
+Patient Transferred to Ward,Inpatient Care,Inpatient Ward,true,20
+Treatment Completed,Treatment,Inpatient Ward,true,120
+Discharge Processed,Discharge & Billing,Discharge Desk,true,30
+Payment Completed,Discharge & Billing,Billing,true,15
+Patient Discharged,Discharge & Billing,Outpatient,true,10
+

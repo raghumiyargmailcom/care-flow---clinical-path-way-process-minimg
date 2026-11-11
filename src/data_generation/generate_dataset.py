@@ -367,6 +367,11 @@ def build_pathway(priority: str, rng: np.random.Generator) -> list[str]:
     if rng.random() < 0.05:
         pathway.append("Social Work Referral")
 
+    # ── Operational Inefficiency & Loop-Back: 40% sent back to Triage after X-Ray due to Missing Paperwork ──
+    if "X-Ray" in pathway and rng.random() < 0.40:
+        xray_idx = pathway.index("X-Ray")
+        pathway.insert(xray_idx + 1, "Triage")
+
     # Disposition phase
     outcome_rand = rng.random()
     if priority in ("P1 - Immediate", "P2 - Urgent"):
@@ -530,11 +535,20 @@ def generate_datasets(num_cases: int = NUM_CASES, seed: int = RANDOM_SEED) -> No
         # Generate events along the pathway
         current_ts = arrival_ts
         case_events: list[dict] = []
+        prev_act = None
 
         for act_name in pathway:
             duration_minutes = sample_activity_duration(act_name, priority, rng)
             event_status = sample_event_status(act_name, rng)
             delay_reason = sample_delay_reason(event_status, act_name, rng)
+
+            # Inefficiency from project brief: Missing paperwork causes return to Triage after X-Ray
+            if act_name == "Triage" and prev_act == "X-Ray":
+                delay_reason = "Missing Paperwork"
+                event_status = "Completed"
+                # Causes an extra 20 min bottleneck delay
+                duration_minutes += 20
+
             doctor_id = sample_doctor_id(act_name, rng)
             department = DEPARTMENTS.get(act_name, "Emergency")
 
@@ -557,6 +571,7 @@ def generate_datasets(num_cases: int = NUM_CASES, seed: int = RANDOM_SEED) -> No
                 "Event_Status": event_status,
                 "Delay_Reason": delay_reason if delay_reason else "",
             })
+            prev_act = act_name
 
         event_rows.extend(case_events)
         departure_ts = current_ts if pathway else arrival_ts

@@ -1,0 +1,77 @@
+version: 2
+
+models:
+  - name: int_event_transitions
+    description: "Enriched event sequence table capturing step numbers, lags, leads, transition labels, dwell times, and rework flags."
+    columns:
+      - name: event_id
+        description: "Unique event surrogate identifier."
+        tests:
+          - unique
+          - not_null
+      - name: case_id
+        description: "Case identifier."
+        tests:
+          - not_null
+      - name: step_number
+        description: "Sequential 1-based order of this activity within the case."
+        tests:
+          - not_null
+      - name: activity_name
+        description: "Clinical activity performed."
+        tests:
+          - not_null
+      - name: transition_from_previous
+        description: "Directed edge label from preceding activity (e.g. 'Initial Triage -> Doctor Consultation')."
+      - name: wait_time_from_previous_minutes
+        description: "Elapsed duration in minutes from the preceding activity."
+      - name: dwell_time_to_next_minutes
+        description: "Elapsed duration in minutes until the next activity begins."
+      - name: is_rework_event
+        description: "Flag indicating if this activity is a repetition of a previously executed activity within the same case."
+      - name: is_case_start
+        description: "Flag indicating whether this is the first activity of the case."
+      - name: is_case_end
+        description: "Flag indicating whether this is the final terminal activity of the case."
+
+  - name: int_case_journeys
+    description: "Aggregated patient journey metrics including total length of stay, clinical milestone wait times, disposition, and SLA compliance."
+    columns:
+      - name: case_id
+        description: "Unique identifier for patient journey."
+        tests:
+          - unique
+          - not_null
+      - name: total_los_minutes
+        description: "Total duration from registration to discharge in minutes."
+        tests:
+          - not_null
+      - name: total_los_hours
+        description: "Total duration in hours."
+      - name: patient_type
+        description: "Classification of journey: 'Outpatient' or 'Inpatient'."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Outpatient', 'Inpatient']
+      - name: final_disposition
+        description: "Final outcome/disposition status of the patient journey."
+      - name: is_4hr_target_compliant
+        description: "Boolean flag: true if total case duration is <= 240 minutes (4-hour national health standard)."
+
+  - name: int_pathway_variants
+    description: "Process mining pathway variant classification identifying distinct sequence flows and their frequency."
+    columns:
+      - name: case_id
+        description: "Case identifier."
+        tests:
+          - unique
+          - not_null
+      - name: variant_id
+        description: "Variant designation (e.g., 'Variant 1', 'Variant 2') ranked by popularity."
+        tests:
+          - not_null
+      - name: pathway_signature
+        description: "Full sequence string of activities separated by ' -> '."
+      - name: variant_frequency
+        description: "Total count of cases executing this exact pathway sequence."

@@ -1,0 +1,118 @@
+activity,next_activity,transition_count,avg_duration_minutes,median_duration_minutes,min_duration_minutes,max_duration_minutes,total_waiting_hours
+Registration,Triage,5000,24.84,21.0,2.0,171.0,2070.0
+Triage,Doctor Consultation,5000,30.16,26.0,4.0,185.0,2513.2
+Discharge Planning,Discharge,3281,35.75,32.0,4.0,140.0,1955.0
+Treatment,Medication Administration,1971,69.2,64.0,14.0,322.0,2273.4
+Doctor Consultation,Blood Test,1280,36.51,33.0,8.0,148.0,778.9
+Treatment,Discharge Planning,1168,84.49,79.5,21.0,274.0,1644.8
+Observation,Treatment,1073,111.2,105.0,30.0,310.0,1988.6
+Doctor Consultation,X-Ray,1031,35.75,32.0,6.0,177.0,614.4
+Blood Test,Treatment,826,78.57,74.0,22.0,262.0,1081.6
+X-Ray,Triage,791,33.37,29.0,6.0,148.0,440.0
+Doctor Consultation,Pain Assessment,761,33.42,30.0,6.0,135.0,423.9
+Medication Administration,Discharge Planning,656,24.23,20.0,4.0,108.0,265.0
+Medication Administration,Reassessment,635,22.7,18.0,3.0,122.0,240.2
+Pain Assessment,Treatment,624,19.12,15.0,1.0,124.0,198.8
+X-Ray,Treatment,492,37.0,33.0,7.0,119.0,303.4
+Treatment,Reassessment,485,71.62,66.0,19.0,175.0,578.9
+Doctor Consultation,Ultrasound,482,36.18,32.0,9.0,126.0,290.6
+Ultrasound,Treatment,434,46.8,42.5,11.0,127.0,338.6
+Specialist Referral,Discharge Planning,412,38.81,35.0,9.0,121.0,266.5
+Reassessment,Discharge Planning,384,28.14,23.0,5.0,93.0,180.1
+Medication Administration,Specialist Referral,370,21.53,18.0,3.0,82.0,132.8
+Blood Test,X-Ray,317,82.03,75.0,14.0,237.0,433.4
+Doctor Consultation,CT Scan,317,30.29,25.0,8.0,110.0,160.0
+Doctor Consultation,ECG,314,29.86,26.5,5.0,115.0,156.3
+Triage,Treatment,289,51.86,48.0,28.0,196.0,249.8
+Doctor Consultation,IV Line Insertion,288,29.65,25.5,5.0,118.0,142.3
+Treatment,Admission,284,79.54,74.0,23.0,204.0,376.5
+Specialist Referral,Admission,261,39.41,36.0,10.0,99.0,171.4
+Doctor Consultation,Treatment,259,41.64,39.0,10.0,116.0,179.8
+Reassessment,Specialist Referral,247,26.64,22.0,4.0,80.0,109.7
+Blood Test,Pain Assessment,227,69.73,68.0,13.0,158.0,263.8
+Medication Administration,Admission,216,26.01,20.5,4.0,92.0,93.6
+Pain Assessment,Blood Test,215,19.73,15.0,1.0,116.0,70.7
+Reassessment,Blood Test,208,25.63,21.0,5.0,131.0,88.8
+Pain Assessment,Observation,203,17.18,13.0,2.0,98.0,58.1
+Doctor Consultation,Discharge Planning,198,42.9,39.0,9.0,134.0,141.6
+Pain Assessment,X-Ray,191,18.82,14.0,2.0,88.0,59.9
+Treatment,Specialist Referral,184,60.8,56.0,11.0,180.0,186.5
+IV Line Insertion,Observation,178,20.53,17.0,4.0,76.0,60.9
+Social Work Referral,Discharge Planning,176,47.99,46.0,13.0,131.0,140.8
+Specialist Referral,Transfer,174,38.7,36.0,10.0,109.0,112.2
+CT Scan,Observation,172,124.91,120.0,36.0,340.0,358.1
+ECG,Observation,171,25.98,22.0,3.0,88.0,74.0
+Blood Test,Observation,169,62.42,56.0,27.0,203.0,175.8
+Blood Test,Discharge Planning,167,84.56,81.0,13.0,230.0,235.4
+Treatment,Transfer,164,77.39,71.0,30.0,174.0,211.5
+Reassessment,Admission,141,27.88,23.0,5.0,106.0,65.5
+Blood Test,ECG,137,62.88,55.0,22.0,167.0,143.6
+ECG,Pain Assessment,134,22.66,20.0,5.0,75.0,50.6
+IV Line Insertion,Treatment,132,20.27,17.0,5.0,70.0,44.6
+X-Ray,Blood Test,132,33.42,30.0,10.0,118.0,73.5
+X-Ray,Pain Assessment,130,32.05,28.0,7.0,80.0,69.4
+Pain Assessment,IV Line Insertion,129,18.3,15.0,1.0,81.0,39.4
+IV Line Insertion,Blood Test,128,23.7,19.5,4.0,103.0,50.6
+ECG,IV Line Insertion,126,26.48,21.5,4.0,105.0,55.6
+CT Scan,Treatment,125,125.97,115.0,46.0,357.0,262.4
+CT Scan,Pain Assessment,125,117.66,113.0,36.0,252.0,245.1
+CT Scan,IV Line Insertion,123,123.33,114.0,41.0,346.0,252.8
+ECG,CT Scan,122,28.23,24.5,7.0,79.0,57.4
+IV Line Insertion,CT Scan,122,21.76,18.0,4.0,72.0,44.2
+CT Scan,Blood Test,119,125.13,116.0,30.0,299.0,248.2
+IV Line Insertion,Pain Assessment,119,21.97,16.0,3.0,74.0,43.6
+Medication Administration,Transfer,119,24.49,20.0,5.0,95.0,48.6
+Pain Assessment,ECG,119,18.96,14.0,2.0,104.0,37.6
+IV Line Insertion,X-Ray,118,22.27,19.5,2.0,112.0,43.8
+Blood Test,IV Line Insertion,118,59.65,56.0,20.0,175.0,117.3
+ECG,Treatment,117,24.49,21.0,5.0,65.0,47.8
+CT Scan,X-Ray,112,129.59,121.5,57.0,280.0,241.9
+Blood Test,CT Scan,110,63.34,61.0,18.0,160.0,116.1
+IV Line Insertion,ECG,108,24.44,20.5,5.0,73.0,44.0
+ECG,X-Ray,108,27.29,22.0,4.0,89.0,49.1
+ECG,Blood Test,107,26.4,21.0,6.0,106.0,47.1
+X-Ray,Observation,104,30.06,26.0,5.0,102.0,52.1
+Reassessment,Transfer,99,27.23,25.0,7.0,162.0,44.9
+Blood Test,Specialist Referral,99,62.01,56.0,16.0,162.0,102.3
+Ultrasound,X-Ray,97,48.9,45.0,19.0,118.0,79.0
+Treatment,Social Work Referral,95,80.02,76.0,22.0,177.0,126.7
+Pain Assessment,CT Scan,95,18.39,15.0,2.0,87.0,29.1
+Ultrasound,Pain Assessment,94,45.49,39.5,15.0,114.0,71.3
+CT Scan,ECG,90,114.23,103.0,29.0,432.0,171.4
+Ultrasound,Blood Test,89,47.67,46.0,9.0,105.0,70.7
+Pain Assessment,Ultrasound,88,18.86,14.0,3.0,54.0,27.7
+Triage,Blood Test,80,49.36,43.0,26.0,117.0,65.8
+X-Ray,IV Line Insertion,77,27.62,24.0,11.0,77.0,35.4
+Blood Test,Ultrasound,77,83.04,78.0,40.0,170.0,106.6
+Triage,Observation,76,43.97,39.5,27.0,92.0,55.7
+Triage,Pain Assessment,74,46.91,42.0,27.0,138.0,57.8
+X-Ray,Discharge Planning,69,39.7,36.0,10.0,87.0,45.6
+Social Work Referral,Admission,66,39.85,36.0,10.0,119.0,43.8
+Triage,ECG,65,47.2,42.0,28.0,119.0,51.1
+X-Ray,CT Scan,59,32.17,27.0,8.0,114.0,31.6
+Specialist Referral,Social Work Referral,53,37.21,31.0,11.0,115.0,32.9
+X-Ray,ECG,52,28.38,25.5,6.0,95.0,24.6
+Medication Administration,Social Work Referral,52,25.69,18.0,6.0,85.0,22.3
+Triage,Discharge Planning,51,57.18,51.0,27.0,124.0,48.6
+Triage,IV Line Insertion,44,48.11,43.0,27.0,115.0,35.3
+Reassessment,Social Work Referral,41,28.49,24.0,10.0,72.0,19.5
+Triage,CT Scan,41,46.66,43.0,28.0,116.0,31.9
+Blood Test,Admission,40,71.18,63.5,21.0,163.0,47.4
+X-Ray,Ultrasound,34,37.82,36.0,9.0,82.0,21.4
+Doctor Consultation,Medication Administration,33,46.91,46.0,10.0,94.0,25.8
+Triage,Ultrasound,33,45.91,46.0,30.0,69.0,25.2
+Blood Test,Transfer,29,60.66,57.0,31.0,116.0,29.3
+Social Work Referral,Transfer,26,38.08,37.0,13.0,81.0,16.5
+Blood Test,Medication Administration,25,107.72,104.0,37.0,181.0,44.9
+Triage,Medication Administration,15,52.2,50.0,33.0,72.0,13.0
+X-Ray,Medication Administration,14,53.57,50.5,28.0,101.0,12.5
+Doctor Consultation,Admission,12,47.75,47.0,13.0,85.0,9.6
+Doctor Consultation,Social Work Referral,12,46.83,44.0,25.0,85.0,9.4
+X-Ray,Admission,11,48.55,44.0,23.0,115.0,8.9
+Triage,Admission,10,55.6,53.0,29.0,94.0,9.3
+Blood Test,Social Work Referral,8,95.0,64.5,32.0,284.0,12.7
+Doctor Consultation,Transfer,5,33.2,32.0,22.0,45.0,2.8
+X-Ray,Social Work Referral,5,39.4,35.0,21.0,80.0,3.3
+Triage,Social Work Referral,4,49.0,49.5,36.0,61.0,3.3
+Triage,Transfer,3,65.33,61.0,49.0,86.0,3.3
+X-Ray,Transfer,2,34.5,34.5,29.0,40.0,1.2

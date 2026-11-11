@@ -1,0 +1,13 @@
+metric,value,category
+Total Patient Cases,5000,Volume
+Total Clinical Events Recorded,43173,Volume
+Average Length of Stay (Minutes),326.6,Efficiency
+Median Length of Stay (Minutes),307.0,Efficiency
+4-Hour Target Compliance Rate (%),25.5,Quality
+Average Triage-to-Doctor Wait (Minutes),30.2,Efficiency
+Overall Pathway Rework Rate (%),17.4,Quality
+Total X-Ray Patients,1974,Bottleneck
+X-Ray → Triage Loop-Back Cases,791,Bottleneck
+X-Ray → Triage Loop-Back Rate (%),40.1%,Bottleneck
+Intake Form Wait Time Reduction (Minutes),20.0,Optimization
+Annual Operational Delay Avoided (Hours),263.7,Optimization

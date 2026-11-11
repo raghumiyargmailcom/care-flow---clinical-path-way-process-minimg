@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: careflow_raw
+    description: "Raw source database for CareFlow hospital event logs and clinical references."
+    database: "{{ env_var('GCP_PROJECT_ID', 'careflow-clinical-pathway') }}"
+    schema: "{{ env_var('DBT_RAW_SCHEMA', 'raw') }}"
+    tables:
+      - name: raw_hospital_events
+        description: "Raw hospital event log table ingested from clinical information systems."
+        columns:
+          - name: case_id
+            description: "Case identifier for patient journey."
+          - name: activity
+            description: "Clinical activity name."
+          - name: timestamp
+            description: "Recorded timestamp."
+          - name: department
+            description: "Executing department."
+          - name: resource
+            description: "Resource role."
+      - name: activity_reference
+        description: "Activity classification and SLA benchmarks."
+

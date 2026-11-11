@@ -1,0 +1,141 @@
+version: 2
+
+models:
+  - name: fct_case_summary
+    description: "Gold dimensional summary table containing one row per patient case with clinical pathway KPIs, duration, outcome, and variant."
+    columns:
+      - name: case_id
+        description: "Primary key: unique identifier for the patient visit."
+        tests:
+          - unique
+          - not_null
+      - name: patient_type
+        description: "Patient journey classification: 'Outpatient' or 'Inpatient'."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Outpatient', 'Inpatient']
+      - name: final_disposition
+        description: "Discharge disposition of the patient."
+        tests:
+          - not_null
+      - name: variant_id
+        description: "Process mining pathway variant designation."
+      - name: total_los_minutes
+        description: "Total patient journey length of stay in minutes."
+        tests:
+          - not_null
+      - name: total_los_hours
+        description: "Total length of stay in hours."
+      - name: is_4hr_target_compliant
+        description: "Flag indicating whether patient met the 4-hour target turnaround."
+      - name: has_rework
+        description: "Flag indicating whether patient experienced rework (repeated activities)."
+      - name: total_events_count
+        description: "Total number of clinical activities recorded during the visit."
+
+  - name: fct_event_log
+    description: "Enriched event-level fact table ready for process mining discovery (PM4Py, Celonis) and BI dashboards."
+    columns:
+      - name: event_id
+        description: "Primary key: unique MD5 hash for event occurrence."
+        tests:
+          - unique
+          - not_null
+      - name: case_id
+        description: "Foreign key: patient case journey."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_case_summary')
+                field: case_id
+      - name: step_number
+        description: "Sequential step number."
+      - name: activity_name
+        description: "Clinical activity performed."
+        tests:
+          - not_null
+      - name: activity_timestamp
+        description: "Event execution timestamp."
+        tests:
+          - not_null
+      - name: resource_role
+        description: "Staff role performing the event."
+        tests:
+          - not_null
+      - name: wait_time_from_previous_minutes
+        description: "Elapsed minutes since preceding activity."
+      - name: is_rework_event
+        description: "Boolean flag: true if activity is a repeat execution within the case."
+
+  - name: fct_activity_transitions
+    description: "Directed edge aggregate table directly powering Directly Follows Graphs (DFG) and process mining network visualizations."
+    columns:
+      - name: transition_id
+        description: "Primary key surrogate ID."
+        tests:
+          - unique
+          - not_null
+      - name: source_activity
+        description: "Origin activity in transition."
+        tests:
+          - not_null
+      - name: target_activity
+        description: "Destination activity in transition."
+        tests:
+          - not_null
+      - name: transition_label
+        description: "Combined directed edge label (Source -> Target)."
+        tests:
+          - not_null
+      - name: transition_count
+        description: "Frequency of transition executions."
+        tests:
+          - not_null
+      - name: avg_transition_time_minutes
+        description: "Average duration in minutes taken across this transition."
+
+  - name: fct_activity_performance
+    description: "Activity-level operational KPIs, throughput, waiting times, and rework rates."
+    columns:
+      - name: activity_name
+        description: "Clinical activity name."
+        tests:
+          - not_null
+      - name: department
+        description: "Department performing the activity."
+      - name: total_executions
+        description: "Total times this activity was executed across all cases."
+      - name: rework_rate_pct
+        description: "Percentage of executions that were rework repetitions."
+
+  - name: fct_daily_hospital_metrics
+    description: "Daily aggregated operational metrics for hospital capacity, patient volume, and SLA compliance tracking."
+    columns:
+      - name: arrival_date
+        description: "Primary key: date of patient arrival."
+        tests:
+          - unique
+          - not_null
+      - name: daily_case_count
+        description: "Total cases arriving on this date."
+        tests:
+          - not_null
+      - name: four_hour_compliance_pct
+        description: "Percentage of cases meeting 4-hour target turnaround."
+
+  - name: fct_bottleneck_analysis
+    description: "Ranked bottleneck identification matrix highlighting clinical stages with highest delays and operational drag."
+    columns:
+      - name: bottleneck_rank
+        description: "Rank from highest to lowest operational delay severity."
+        tests:
+          - not_null
+      - name: bottleneck_stage
+        description: "Stage transition where bottleneck occurs."
+        tests:
+          - not_null
+      - name: bottleneck_severity_hours
+        description: "Total cumulative delay impact in hours."

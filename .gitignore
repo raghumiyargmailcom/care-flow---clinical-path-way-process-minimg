@@ -1,0 +1,14 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Local databases & logs
+*.duckdb
+*.log
+dbt_core/target/
+dbt_core/dbt_packages/
+dbt_core/logs/
+dbt_core/.user.yml

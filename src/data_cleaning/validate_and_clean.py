@@ -119,6 +119,20 @@ def run_cleaning_pipeline() -> None:
     _write(case_df, PROCESSED_DIR / f"patient_cases_clean_{timestamp_tag}.csv", "patient_cases_clean.csv")
     _write(ref_df, PROCESSED_DIR / f"activity_reference_clean_{timestamp_tag}.csv", "activity_reference_clean.csv")
 
+    # Standardized 5-column event log for PM4Py & notebook compatibility
+    compat_df = event_df[["Case_ID", "Activity_Name", "Timestamp", "Department", "Doctor_ID"]].rename(
+        columns={
+            "Case_ID": "case_id",
+            "Activity_Name": "activity",
+            "Timestamp": "timestamp",
+            "Department": "department",
+            "Doctor_ID": "resource",
+        }
+    )
+    compat_df["resource"] = compat_df["resource"].replace("", "Staff")
+    compat_df.to_csv(PROCESSED_DIR / "cleaned_data.csv", index=False)
+    log.info("✓ Written: cleaned_data.csv (compatible with notebooks & PM4Py)")
+
     log.info("✓ Cleaning pipeline complete.  Outputs → %s", PROCESSED_DIR)
 
 

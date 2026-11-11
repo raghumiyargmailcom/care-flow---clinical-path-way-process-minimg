@@ -1,0 +1,54 @@
+version: 2
+
+seeds:
+  - name: raw_hospital_events
+    description: "Raw clinical pathway event log loaded from source hospital operations."
+    config:
+      column_types:
+        case_id: varchar(50)
+        activity: varchar(100)
+        timestamp: timestamp
+        department: varchar(100)
+        resource: varchar(100)
+    columns:
+      - name: case_id
+        description: "Unique identifier for patient visit journey (e.g., HOSP_0001)."
+        tests:
+          - not_null
+      - name: activity
+        description: "Clinical activity performed during patient visit."
+        tests:
+          - not_null
+      - name: timestamp
+        description: "Timestamp when the clinical activity occurred."
+        tests:
+          - not_null
+      - name: department
+        description: "Department performing the activity."
+      - name: resource
+        description: "Resource role executing the activity."
+
+  - name: activity_reference
+    description: "Reference catalog mapping clinical activities to categories, departments, and SLA benchmarks."
+    config:
+      column_types:
+        activity_name: varchar(100)
+        activity_category: varchar(50)
+        standard_department: varchar(100)
+        is_milestone: boolean
+        sla_expected_duration_minutes: integer
+    columns:
+      - name: activity_name
+        description: "Name of the clinical activity."
+        tests:
+          - unique
+          - not_null
+      - name: activity_category
+        description: "Functional category (Administrative, Triage, Clinical Consultation, Laboratory, Radiology, Inpatient Care, Discharge & Billing)."
+      - name: standard_department
+        description: "Standard primary department responsible."
+      - name: is_milestone
+        description: "Whether this event constitutes a major clinical pathway milestone."
+      - name: sla_expected_duration_minutes
+        description: "Benchmark expected target duration for this stage in minutes."
+

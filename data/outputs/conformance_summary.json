@@ -1,0 +1,12 @@
+{
+  "total_cases_analyzed": 5000,
+  "compliant_cases": 4158,
+  "non_compliant_cases": 842,
+  "compliance_rate_pct": 83.2,
+  "average_log_fitness_score": 0.958,
+  "deviation_breakdown": {
+    "UNAUTHORIZED_XRAY_TO_TRIAGE_LOOPBACK": 791,
+    "INCOMPLETE_OR_IRREGULAR_DISPOSITION": 51
+  },
+  "xray_loopback_violations": 791
+}

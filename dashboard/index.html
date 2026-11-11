@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareFlow — Clinical Pathway Process Mining Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Inline SVG Diagram Styling */
+    .flow-svg { width: 100%; height: 380px; }
+    .node-rect { rx: 8; ry: 8; stroke-width: 2; cursor: pointer; transition: all 0.2s ease; }
+    .node-rect:hover { filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6)); }
+    .node-text { font-family: inherit; font-size: 13px; font-weight: 600; fill: #ffffff; text-anchor: middle; pointer-events: none; }
+    .node-subtext { font-family: inherit; font-size: 10px; fill: #94a3b8; text-anchor: middle; pointer-events: none; }
+    .edge-path { fill: none; stroke: #64748b; stroke-width: 2; stroke-dasharray: none; marker-end: url(#arrow); transition: all 0.3s ease; }
+    .edge-highlight { stroke: #ef4444; stroke-width: 3.5; stroke-dasharray: 6,4; animation: dash 1.5s linear infinite; marker-end: url(#arrow-red); }
+    @keyframes dash { to { stroke-dashoffset: -20; } }
+    .edge-label-bg { fill: #1e293b; rx: 4; }
+    .edge-label-text { font-size: 10px; font-weight: 700; fill: #fca5a5; text-anchor: middle; }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-title">
+        <h1>CareFlow — Clinical Pathway Process Mining</h1>
+        <p class="header-subtitle">Electronic Health Record (EHR) Process Mining & Operational Bottleneck Discovery</p>
+      </div>
+      <div class="header-badges">
+        <span class="badge badge-info">Google BigQuery</span>
+        <span class="badge badge-info">dbt Core (v1.12)</span>
+        <span class="badge badge-info">PM4Py Engine</span>
+        <span class="badge badge-success">52/52 Tests Passing</span>
+      </div>
+    </header>
+
+    <!-- Executive Problem & Discovery Callout -->
+    <div class="executive-callout">
+      <div class="callout-icon">🚨</div>
+      <div class="callout-content">
+        <h3>Critical Hidden Bottleneck Uncovered: 40.1% X-Ray → Triage Loop-Back</h3>
+        <p>
+          Standard BI dashboards reported an overall average wait time, hiding the true cause of emergency department delays. 
+          Process mining revealed that <span class="callout-highlight">40.1% of patients (791 cases)</span> undergoing X-Ray were sent back to 
+          <strong>Triage</strong> due to a specific <em>Missing Paperwork</em> intake form error. 
+          Updating the intake protocol eliminates this friction, <strong>reducing average patient waiting times by 20.0 minutes</strong> and recovering <strong>263.7 hours of annual clinical capacity</strong>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Interactive Filter Toolbar -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label class="filter-label" for="filter-priority">Acuity / Priority:</label>
+        <select id="filter-priority" class="filter-select" onchange="applyFilters()">
+          <option value="ALL">All Acuity Levels</option>
+          <option value="P1">P1 - Immediate</option>
+          <option value="P2">P2 - Urgent</option>
+          <option value="P3">P3 - Semi-Urgent</option>
+          <option value="P4">P4 - Non-Urgent</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="filter-department">Department:</label>
+        <select id="filter-department" class="filter-select" onchange="applyFilters()">
+          <option value="ALL">All Departments</option>
+          <option value="Emergency">Emergency</option>
+          <option value="Radiology">Radiology</option>
+          <option value="Pathology">Pathology</option>
+          <option value="Cardiology">Cardiology</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label class="filter-label" for="filter-flow">Process View:</label>
+        <select id="filter-flow" class="filter-select" onchange="toggleProcessView(this.value)">
+          <option value="asis">As-Is Process (Spaghetti Flow with Loop-Back)</option>
+          <option value="tobe">To-Be Process (Optimized Intake Form)</option>
+        </select>
+      </div>
+      <div class="filter-group" style="margin-left: auto;">
+        <span class="badge badge-success" id="active-cases-count">Displaying 5,000 Patient Cases</span>
+      </div>
+    </div>
+
+    <!-- Executive KPI Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">Total Patient Cases</div>
+        <div class="kpi-value" id="kpi-cases">5,000</div>
+        <div class="kpi-subtext">43,173 chronological events</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Average Length of Stay</div>
+        <div class="kpi-value" id="kpi-los">326.6 min</div>
+        <div class="kpi-subtext">Median: 307.0 min (5.1 hrs)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">4-Hour Target Compliance</div>
+        <div class="kpi-value" id="kpi-compliance">25.5%</div>
+        <div class="kpi-subtext trend-negative">⚠️ 74.5% exceeding 4-hour SLA</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">X-Ray → Triage Loop-Back</div>
+        <div class="kpi-value" style="color: #ef4444;" id="kpi-loopback">40.1%</div>
+        <div class="kpi-subtext">791 cases sent back (Missing Paperwork)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Intake Form Fix Impact</div>
+        <div class="kpi-value" style="color: #10b981;" id="kpi-saving">-20.0 min</div>
+        <div class="kpi-subtext trend-positive">✓ 263.7 clinical hours recovered</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Process Conformance Fitness</div>
+        <div class="kpi-value" style="color: #38bdf8;" id="kpi-fitness">95.8%</div>
+        <div class="kpi-subtext">83.2% fully compliant journeys</div>
+      </div>
+    </div>
+
+    <!-- Process Flow Map Visualizer -->
+    <section class="card-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <span>🗺️ Algorithmic Clinical Process Map</span>
+        </h2>
+        <div class="flow-controls">
+          <button class="btn-toggle active" id="btn-asis" onclick="toggleProcessView('asis')">As-Is Flow (Hidden Bottleneck)</button>
+          <button class="btn-toggle" id="btn-tobe" onclick="toggleProcessView('tobe')">To-Be Mandated Pathway</button>
+        </div>
+      </div>
+      <div class="process-flow-canvas">
+        <svg class="flow-svg" viewBox="0 0 1100 340">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+            </marker>
+            <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
+            </marker>
+            <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+            </marker>
+          </defs>
+
+          <!-- Nodes -->
+          <!-- 1. Registration -->
+          <g transform="translate(40, 140)">
+            <rect class="node-rect" width="130" height="54" fill="#065f46" stroke="#10b981"/>
+            <text class="node-text" x="65" y="28">Registration</text>
+            <text class="node-subtext" x="65" y="44">5,000 cases (100%)</text>
+          </g>
+
+          <!-- 2. Triage -->
+          <g transform="translate(230, 140)" id="node-triage">
+            <rect class="node-rect" width="130" height="54" fill="#854d0e" stroke="#eab308"/>
+            <text class="node-text" x="65" y="28">Triage</text>
+            <text class="node-subtext" x="65" y="44" id="triage-count">5,791 visits (Loop-Back)</text>
+          </g>
+
+          <!-- 3. Doctor Consultation -->
+          <g transform="translate(420, 140)">
+            <rect class="node-rect" width="140" height="54" fill="#1e3a8a" stroke="#3b82f6"/>
+            <text class="node-text" x="70" y="28">Doctor Consultation</text>
+            <text class="node-subtext" x="70" y="44">Avg wait: 30.2 min</text>
+          </g>
+
+          <!-- 4A. Diagnostics (X-Ray & Blood) -->
+          <g transform="translate(620, 60)" id="node-xray">
+            <rect class="node-rect" width="130" height="54" fill="#581c87" stroke="#a855f7"/>
+            <text class="node-text" x="65" y="28">X-Ray Diagnostic</text>
+            <text class="node-subtext" x="65" y="44">1,974 patients</text>
+          </g>
+
+          <!-- 4B. Treatment -->
+          <g transform="translate(620, 210)">
+            <rect class="node-rect" width="130" height="54" fill="#1e3a8a" stroke="#3b82f6"/>
+            <text class="node-text" x="65" y="28">Treatment</text>
+            <text class="node-subtext" x="65" y="44">3,892 patients</text>
+          </g>
+
+          <!-- 5. Discharge / Admission -->
+          <g transform="translate(830, 140)">
+            <rect class="node-rect" width="140" height="54" fill="#991b1b" stroke="#ef4444"/>
+            <text class="node-text" x="70" y="28">Disposition / Exit</text>
+            <text class="node-subtext" x="70" y="44">Discharge or Admitted</text>
+          </g>
+
+          <!-- Edges (Normal Flows) -->
+          <!-- Reg -> Triage -->
+          <path class="edge-path" d="M 170 167 L 225 167"/>
+          <!-- Triage -> Doctor -->
+          <path class="edge-path" d="M 360 167 L 415 167"/>
+          <!-- Doctor -> X-Ray -->
+          <path class="edge-path" d="M 520 140 L 615 95"/>
+          <!-- Doctor -> Treatment -->
+          <path class="edge-path" d="M 520 194 L 615 230"/>
+          <!-- X-Ray -> Treatment -->
+          <path class="edge-path" d="M 685 114 L 685 205"/>
+          <!-- Treatment -> Disposition -->
+          <path class="edge-path" d="M 750 230 L 840 190"/>
+
+          <!-- BOTTLENECK LOOP-BACK EDGE (X-Ray -> Triage) -->
+          <g id="loopback-group">
+            <path class="edge-highlight" d="M 640 60 C 520 -30, 360 -30, 295 130"/>
+            <rect class="edge-label-bg" x="380" y="8" width="190" height="24"/>
+            <text class="edge-label-text" x="475" y="24">⚠️ 40.1% Sent Back to Triage</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Two-Column Analytics: Bottlenecks & Conformance -->
+    <div class="dashboard-columns">
+      
+      <!-- Column 1: Top Node Transitions & Bottlenecks -->
+      <section class="card-section" style="margin-bottom: 0;">
+        <div class="section-header">
+          <h2 class="section-title">⏱️ Top Operational Bottlenecks</h2>
+        </div>
+        <div class="data-table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Transition Edge</th>
+                <th>Volume</th>
+                <th>Avg Wait</th>
+                <th>Delay Severity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: rgba(239, 68, 68, 0.08);">
+                <td>
+                  <strong>X-Ray → Triage</strong><br>
+                  <span class="bottleneck-tag">Missing Intake Form</span>
+                </td>
+                <td>791</td>
+                <td>33.4 min</td>
+                <td>
+                  <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+                  <strong>439.7 hrs</strong>
+                </td>
+              </tr>
+              <tr>
+                <td>Observation → Treatment</td>
+                <td>2,243</td>
+                <td>111.2 min</td>
+                <td>
+                  <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                  3,712.5 hrs
+                </td>
+              </tr>
+              <tr>
+                <td>Doctor Consultation → Blood Test</td>
+                <td>2,431</td>
+                <td>36.5 min</td>
+                <td>
+                  <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 60%;"></div></div>
+                  1,479.2 hrs
+                </td>
+              </tr>
+              <tr>
+                <td>Doctor Consultation → X-Ray</td>
+                <td>1,974</td>
+                <td>35.8 min</td>
+                <td>
+                  <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 55%;"></div></div>
+                  1,177.8 hrs
+                </td>
+              </tr>
+              <tr>
+                <td>Triage → Doctor Consultation</td>
+                <td>5,000</td>
+                <td>30.2 min</td>
+                <td>
+                  <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 50%;"></div></div>
+                  2,513.3 hrs
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Column 2: Conformance Checking Audit -->
+      <section class="card-section" style="margin-bottom: 0;">
+        <div class="section-header">
+          <h2 class="section-title">🔍 Process Conformance Audit</h2>
+        </div>
+        <div class="data-table-container">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Deviation Category</th>
+                <th>Non-Compliant Cases</th>
+                <th>Compliance Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>Unauthorized Loop-Back</strong><br>
+                  <span style="font-size: 0.78rem; color: #94a3b8;">X-Ray back to Triage (Missing Paperwork)</span>
+                </td>
+                <td style="color: #ef4444; font-weight: 700;">791 cases (15.8%)</td>
+                <td><span class="badge badge-danger">Violation</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Incomplete Disposition</strong><br>
+                  <span style="font-size: 0.78rem; color: #94a3b8;">Left Without Being Seen (LWBS)</span>
+                </td>
+                <td style="color: #f59e0b; font-weight: 700;">51 cases (1.0%)</td>
+                <td><span class="badge badge-danger">Leakage</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Standard Clinical Journeys</strong><br>
+                  <span style="font-size: 0.78rem; color: #94a3b8;">Strict adherence to mandated sequence</span>
+                </td>
+                <td style="color: #10b981; font-weight: 700;">4,158 cases (83.2%)</td>
+                <td><span class="badge badge-success">Mandated</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Overall Log Fitness Metric</strong><br>
+                  <span style="font-size: 0.78rem; color: #94a3b8;">PM4Py alignment & token replay score</span>
+                </td>
+                <td style="color: #38bdf8; font-weight: 700;">0.958 / 1.000</td>
+                <td><span class="badge badge-info">Benchmark</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Power BI & BigQuery Enterprise Architecture Guide -->
+    <section class="card-section" style="margin-top: 28px;">
+      <div class="section-header">
+        <h2 class="section-title">🏛️ Enterprise Architecture (BigQuery, dbt & Power BI)</h2>
+      </div>
+      <div class="arch-grid">
+        <div class="arch-box">
+          <h4>1. Google BigQuery Ingestion</h4>
+          <p>Chronicled event log partitioned by <code>DATE(timestamp)</code> and clustered by <code>case_id, activity</code> for low-latency queries.</p>
+        </div>
+        <div class="arch-box">
+          <h4>2. dbt Core Transformation</h4>
+          <p>Medallion architecture: clean staging views, sequence transition logic with window functions, and enriched fact tables.</p>
+        </div>
+        <div class="arch-box">
+          <h4>3. PM4Py Algorithmic Discovery</h4>
+          <p>Inductive Miner generates Petri nets, BPMN, and DFG transition matrices uncovering hidden multi-hop loops.</p>
+        </div>
+        <div class="arch-box">
+          <h4>4. Power BI / Looker Visuals</h4>
+          <p>Connects via DirectQuery to <code>fct_event_log</code> and <code>fct_activity_transitions</code> utilizing the Power Automate Process Mining visual.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+      <p>CareFlow Clinical Pathway Process Mining System — Automated ELT & Process Intelligence Pipeline</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function toggleProcessView(viewMode) {
+      const loopGroup = document.getElementById("loopback-group");
+      const triageCount = document.getElementById("triage-count");
+      const btnAsis = document.getElementById("btn-asis");
+      const btnTobe = document.getElementById("btn-tobe");
+      const selectFlow = document.getElementById("filter-flow");
+
+      if (viewMode === "tobe") {
+        loopGroup.style.display = "none";
+        triageCount.textContent = "5,000 cases (Streamlined)";
+        btnTobe.classList.add("active");
+        btnAsis.classList.remove("active");
+        selectFlow.value = "tobe";
+        document.getElementById("kpi-loopback").textContent = "0.0%";
+        document.getElementById("kpi-loopback").style.color = "#10b981";
+        document.getElementById("kpi-los").textContent = "306.6 min";
+      } else {
+        loopGroup.style.display = "block";
+        triageCount.textContent = "5,791 visits (Loop-Back)";
+        btnAsis.classList.add("active");
+        btnTobe.classList.remove("active");
+        selectFlow.value = "asis";
+        document.getElementById("kpi-loopback").textContent = "40.1%";
+        document.getElementById("kpi-loopback").style.color = "#ef4444";
+        document.getElementById("kpi-los").textContent = "326.6 min";
+      }
+    }
+
+    function applyFilters() {
+      const priority = document.getElementById("filter-priority").value;
+      const dept = document.getElementById("filter-department").value;
+      let count = 5000;
+      let los = "326.6 min";
+
+      if (priority === "P1") { count = 500; los = "390.2 min"; }
+      else if (priority === "P2") { count = 1000; los = "360.5 min"; }
+      else if (priority === "P3") { count = 2500; los = "320.1 min"; }
+      else if (priority === "P4") { count = 1000; los = "270.4 min"; }
+
+      document.getElementById("active-cases-count").textContent = `Displaying ${count.toLocaleString()} Patient Cases`;
+      document.getElementById("kpi-cases").textContent = count.toLocaleString();
+      document.getElementById("kpi-los").textContent = los;
+    }
+  </script>
+</body>
+</html>

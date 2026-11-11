@@ -32,7 +32,7 @@ HOSP_0004,Treatment Completed,2026-03-10 11:36:00,Inpatient Ward,Doctor
 HOSP_0004,Discharge Processed,2026-03-10 11:45:00,Discharge Desk,Discharge Clerk
 HOSP_0005,Patient Registration,2026-03-27 11:33:00,Front Desk,Registration Clerk
 HOSP_0005,Initial Triage,2026-03-27 11:37:00,Emergency/Triage,Triage Nurse
-HOSP_0005,Doctor Consultation,2026-03-27 11:47:00,Outpatient,Doctor
+HOSP_0005,Doctor Consultation,2026-03-27 11:47:00,Outpatient,DoctorL
 HOSP_0005,Lab Test Ordered,2026-03-27 11:51:00,Outpatient,Doctor
 HOSP_0005,Sample Collected,2026-03-27 12:04:00,Laboratory,Lab Technician
 HOSP_0005,Lab Results Available,2026-03-27 12:19:00,Laboratory,Lab Technician

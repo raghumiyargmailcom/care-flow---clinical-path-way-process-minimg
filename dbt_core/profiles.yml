@@ -1,0 +1,30 @@
+dbt_core:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT_ID', 'careflow-clinical-pathway') }}"
+      dataset: "{{ env_var('DBT_DATASET', 'careflow_dbt_dev') }}"
+      threads: 4
+      timeout_seconds: 300
+      location: US
+      priority: interactive
+      retries: 1
+
+    prod:
+      type: bigquery
+      method: service-account
+      keyfile: "{{ env_var('GCP_KEYFILE_PATH', 'credentials/service_account.json') }}"
+      project: "{{ env_var('GCP_PROJECT_ID', 'careflow-clinical-pathway') }}"
+      dataset: "{{ env_var('DBT_DATASET', 'careflow_dbt_prod') }}"
+      threads: 8
+      timeout_seconds: 600
+      location: US
+      priority: batch
+      retries: 2
+
+    local:
+      type: duckdb
+      path: 'target/careflow_local.duckdb'
+      threads: 4
