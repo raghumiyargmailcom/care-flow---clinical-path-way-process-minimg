@@ -12,3 +12,4 @@ dbt_core/target/
 dbt_core/dbt_packages/
 dbt_core/logs/
 dbt_core/.user.yml
+

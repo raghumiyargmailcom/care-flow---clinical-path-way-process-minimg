@@ -84,3 +84,4 @@ def test_xray_loopback_analytics(sample_event_log):
     assert metrics["total_xray_patients"] == 1
     assert metrics["xray_to_triage_loopback_cases"] == 1
     assert metrics["xray_to_triage_loopback_pct"] == 100.0
+
