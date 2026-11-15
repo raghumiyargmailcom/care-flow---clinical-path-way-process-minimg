@@ -928,6 +928,127 @@
           </div>
 
         </div>
+
+        <!-- Case-Level Conformance Audit Log Table -->
+        <div class="pbi-visual-card">
+          <div class="visual-title-bar">
+            <h2>🔍 Case-Level Conformance Audit & Deviation Explorer</h2>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div class="visual-controls">
+                <button class="pbi-btn active" id="btn-audit-all" onclick="filterAuditTable('ALL', this)">All (5,000)</button>
+                <button class="pbi-btn" id="btn-audit-loop" onclick="filterAuditTable('LOOPBACK', this)">⚠️ Loop-Backs (791)</button>
+                <button class="pbi-btn" id="btn-audit-comp" onclick="filterAuditTable('COMPLIANT', this)">✓ Compliant (4,158)</button>
+              </div>
+              <input type="text" id="audit-search" placeholder="Search Case ID (e.g. CASE00002)..." style="background:#141414; border:1px solid #333; color:#fff; padding:5px 10px; border-radius:4px; font-size:11px; width: 220px;" onkeyup="searchAuditTable()">
+            </div>
+          </div>
+          <div class="pbi-table-wrapper" style="max-height: 380px; overflow-y: auto;">
+            <table class="pbi-table" id="audit-table">
+              <thead>
+                <tr>
+                  <th>Case ID</th>
+                  <th>Steps</th>
+                  <th>Clinical Pathway Trace Signature</th>
+                  <th>Trace Fitness</th>
+                  <th>Compliance Status</th>
+                  <th>Deviation Type</th>
+                </tr>
+              </thead>
+              <tbody id="audit-table-body">
+                <tr class="audit-row" data-compliance="LOOPBACK" style="background: rgba(239, 68, 68, 0.15); font-weight: 600;">
+                  <td><strong>CASE00002</strong></td>
+                  <td>7</td>
+                  <td style="font-family: monospace; font-size: 11px;">Registration → Triage → Doctor → <span style="color:#ef4444; font-weight:bold;">X-Ray → Triage (Loop)</span> → Treatment → Admission</td>
+                  <td><span style="color:#ef4444; font-weight:700;">0.750</span></td>
+                  <td><span class="table-tag table-tag-red">NON-COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-red">UNAUTHORIZED_XRAY_TO_TRIAGE_LOOPBACK</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="LOOPBACK" style="background: rgba(239, 68, 68, 0.15); font-weight: 600;">
+                  <td><strong>CASE00009</strong></td>
+                  <td>13</td>
+                  <td style="font-family: monospace; font-size: 11px;">Registration → Triage → Doctor → Blood Test → IV Line → <span style="color:#ef4444; font-weight:bold;">X-Ray → Triage (Loop)</span> → CT Scan → Treatment → Discharge</td>
+                  <td><span style="color:#ef4444; font-weight:700;">0.750</span></td>
+                  <td><span class="table-tag table-tag-red">NON-COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-red">UNAUTHORIZED_XRAY_TO_TRIAGE_LOOPBACK</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="LOOPBACK" style="background: rgba(239, 68, 68, 0.15); font-weight: 600;">
+                  <td><strong>CASE00015</strong></td>
+                  <td>8</td>
+                  <td style="font-family: monospace; font-size: 11px;">Registration → Triage → Doctor → Pain Assess → <span style="color:#ef4444; font-weight:bold;">X-Ray → Triage (Loop)</span> → Treatment → Discharge</td>
+                  <td><span style="color:#ef4444; font-weight:700;">0.750</span></td>
+                  <td><span class="table-tag table-tag-red">NON-COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-red">UNAUTHORIZED_XRAY_TO_TRIAGE_LOOPBACK</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="LOOPBACK" style="background: rgba(239, 68, 68, 0.15); font-weight: 600;">
+                  <td><strong>CASE00018</strong></td>
+                  <td>9</td>
+                  <td style="font-family: monospace; font-size: 11px;">Registration → Triage → Doctor → ECG → <span style="color:#ef4444; font-weight:bold;">X-Ray → Triage (Loop)</span> → Treatment → Meds → Discharge</td>
+                  <td><span style="color:#ef4444; font-weight:700;">0.750</span></td>
+                  <td><span class="table-tag table-tag-red">NON-COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-red">UNAUTHORIZED_XRAY_TO_TRIAGE_LOOPBACK</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="COMPLIANT">
+                  <td><strong>CASE00001</strong></td>
+                  <td>7</td>
+                  <td style="font-family: monospace; font-size: 11px; color:#cbd5e1;">Registration → Triage → Doctor Consultation → X-Ray → Medication → Discharge Planning → Discharge</td>
+                  <td><span style="color:#22c55e; font-weight:700;">1.000</span></td>
+                  <td><span class="table-tag table-tag-green">COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-green">NONE (Ideal Pathway)</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="COMPLIANT">
+                  <td><strong>CASE00003</strong></td>
+                  <td>5</td>
+                  <td style="font-family: monospace; font-size: 11px; color:#cbd5e1;">Registration → Triage → Doctor Consultation → X-Ray → Admission</td>
+                  <td><span style="color:#22c55e; font-weight:700;">1.000</span></td>
+                  <td><span class="table-tag table-tag-green">COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-green">NONE (Ideal Pathway)</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="COMPLIANT">
+                  <td><strong>CASE00004</strong></td>
+                  <td>10</td>
+                  <td style="font-family: monospace; font-size: 11px; color:#cbd5e1;">Registration → Triage → Doctor → Pain Assessment → Ultrasound → Treatment → Meds → Discharge</td>
+                  <td><span style="color:#22c55e; font-weight:700;">1.000</span></td>
+                  <td><span class="table-tag table-tag-green">COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-green">NONE (Ideal Pathway)</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="COMPLIANT">
+                  <td><strong>CASE00005</strong></td>
+                  <td>10</td>
+                  <td style="font-family: monospace; font-size: 11px; color:#cbd5e1;">Registration → Triage → Doctor → Pain Assessment → Blood Test → ECG → Treatment → Admission</td>
+                  <td><span style="color:#22c55e; font-weight:700;">1.000</span></td>
+                  <td><span class="table-tag table-tag-green">COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-green">NONE (Ideal Pathway)</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="COMPLIANT">
+                  <td><strong>CASE00006</strong></td>
+                  <td>6</td>
+                  <td style="font-family: monospace; font-size: 11px; color:#cbd5e1;">Registration → Triage → Doctor Consultation → Treatment → Discharge Planning → Discharge</td>
+                  <td><span style="color:#22c55e; font-weight:700;">1.000</span></td>
+                  <td><span class="table-tag table-tag-green">COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-green">NONE (Ideal Pathway)</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="COMPLIANT">
+                  <td><strong>CASE00007</strong></td>
+                  <td>5</td>
+                  <td style="font-family: monospace; font-size: 11px; color:#cbd5e1;">Registration → Triage → Doctor Consultation → Treatment → Transfer</td>
+                  <td><span style="color:#22c55e; font-weight:700;">1.000</span></td>
+                  <td><span class="table-tag table-tag-green">COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-green">NONE (Ideal Pathway)</span></td>
+                </tr>
+                <tr class="audit-row" data-compliance="COMPLIANT">
+                  <td><strong>CASE00008</strong></td>
+                  <td>8</td>
+                  <td style="font-family: monospace; font-size: 11px; color:#cbd5e1;">Registration → Triage → Doctor Consultation → Blood Test → Treatment → Meds → Discharge</td>
+                  <td><span style="color:#22c55e; font-weight:700;">1.000</span></td>
+                  <td><span class="table-tag table-tag-green">COMPLIANT</span></td>
+                  <td><span class="table-tag table-tag-green">NONE (Ideal Pathway)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        </div>
       </div>
 
       <!-- ====================================================================
@@ -1176,6 +1297,32 @@
       if (counter) {
         counter.textContent = `${visible} transition${visible === 1 ? '' : 's'} shown`;
       }
+    }
+    function filterAuditTable(filterType, btnElement) {
+      if (btnElement) {
+        document.querySelectorAll("#page-conformance .visual-controls .pbi-btn").forEach(b => b.classList.remove("active"));
+        btnElement.classList.add("active");
+      }
+      const rows = document.querySelectorAll(".audit-row");
+      rows.forEach(r => {
+        const compliance = r.getAttribute("data-compliance");
+        if (filterType === "ALL") {
+          r.style.display = "";
+        } else if (filterType === compliance) {
+          r.style.display = "";
+        } else {
+          r.style.display = "none";
+        }
+      });
+    }
+
+    function searchAuditTable() {
+      const input = document.getElementById("audit-search").value.toUpperCase();
+      const rows = document.querySelectorAll(".audit-row");
+      rows.forEach(row => {
+        const text = row.innerText.toUpperCase();
+        row.style.display = text.indexOf(input) > -1 ? "" : "none";
+      });
     }
   </script>
 </body>
