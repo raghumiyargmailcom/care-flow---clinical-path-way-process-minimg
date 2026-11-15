@@ -497,10 +497,69 @@
            PAGE 3: BOTTLENECK & TRANSITION MATRIX
            ==================================================================== -->
       <div id="page-bottlenecks" class="report-page">
+        
+        <!-- Top Bottleneck Latencies Visual Chart -->
         <div class="pbi-visual-card">
           <div class="visual-title-bar">
-            <h2>⏱️ Full Clinical Node-to-Node Transition Matrix</h2>
-            <input type="text" id="table-search" placeholder="Filter activities..." style="background:#141414; border:1px solid #333; color:#fff; padding:4px 8px; border-radius:3px; font-size:11px;" onkeyup="filterTransitionTable()">
+            <h2>📊 Top Clinical Bottlenecks by Average Waiting Time (Minutes)</h2>
+            <span style="font-size: 11px; color: var(--pbi-text-secondary);">dbt fct_bottleneck_analysis</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; padding: 6px 0;">
+            <!-- SVG Horizontal Bar Chart -->
+            <svg viewBox="0 0 460 210" style="width: 100%; height: 210px;">
+              <!-- 1. Observation -> Treatment: 111.2m -->
+              <text x="10" y="24" fill="#cbd5e1" font-size="11" font-weight="600">Observation → Treatment</text>
+              <rect x="180" y="12" width="230" height="18" fill="#ef4444" rx="3"/>
+              <text x="415" y="25" fill="#ffffff" font-size="11" font-weight="700">111.2m</text>
+
+              <!-- 2. Treatment -> Discharge: 84.5m -->
+              <text x="10" y="58" fill="#cbd5e1" font-size="11" font-weight="600">Treatment → Discharge Plan</text>
+              <rect x="180" y="46" width="175" height="18" fill="#f97316" rx="3"/>
+              <text x="360" y="59" fill="#ffffff" font-size="11" font-weight="700">84.5m</text>
+
+              <!-- 3. Blood Test -> X-Ray: 82.0m -->
+              <text x="10" y="92" fill="#cbd5e1" font-size="11" font-weight="600">Blood Test → X-Ray</text>
+              <rect x="180" y="80" width="170" height="18" fill="#f97316" rx="3"/>
+              <text x="355" y="93" fill="#ffffff" font-size="11" font-weight="700">82.0m</text>
+
+              <!-- 4. Blood Test -> Treatment: 78.6m -->
+              <text x="10" y="126" fill="#cbd5e1" font-size="11" font-weight="600">Blood Test → Treatment</text>
+              <rect x="180" y="114" width="162" height="18" fill="#eab308" rx="3"/>
+              <text x="347" y="127" fill="#ffffff" font-size="11" font-weight="700">78.6m</text>
+
+              <!-- 5. Treatment -> Meds: 69.2m -->
+              <text x="10" y="160" fill="#cbd5e1" font-size="11" font-weight="600">Treatment → Medication</text>
+              <rect x="180" y="148" width="143" height="18" fill="#eab308" rx="3"/>
+              <text x="328" y="161" fill="#ffffff" font-size="11" font-weight="700">69.2m</text>
+
+              <!-- 6. X-Ray -> Triage (Loop-Back): 33.4m -->
+              <text x="10" y="194" fill="#fca5a5" font-size="11" font-weight="700">🚨 X-Ray → Triage (Loop)</text>
+              <rect x="180" y="182" width="69" height="18" fill="#ef4444" rx="3"/>
+              <text x="254" y="195" fill="#fca5a5" font-size="11" font-weight="700">33.4m (440 hrs drag)</text>
+            </svg>
+
+            <!-- Bottleneck Insights Callout Box -->
+            <div style="background: #181818; border: 1px solid #2d2d2d; border-radius: 6px; padding: 14px; font-size: 12px; color: #cbd5e1; line-height: 1.6;">
+              <h4 style="margin: 0 0 6px; color: var(--pbi-yellow);">Clinical Bottleneck Breakdown</h4>
+              <p style="margin: 0 0 8px;">
+                While <strong>Observation → Treatment</strong> has the longest individual clinical wait (111.2 min) due to bed availability, the <strong>X-Ray → Triage Loop-back</strong> represents <strong>100% avoidable friction</strong>.
+              </p>
+              <ul style="padding-left: 18px; margin: 0; color: #94a3b8;">
+                <li><strong style="color:#ef4444;">Avoidable Friction:</strong> 791 patients sent backwards, causing 440.0 hours of unnecessary waiting.</li>
+                <li><strong style="color:var(--pbi-yellow);">Intake Fix:</strong> Updating the digital requisition slip eliminates this step entirely.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Transition Matrix Table -->
+        <div class="pbi-visual-card">
+          <div class="visual-title-bar">
+            <h2>⏱️ Full Clinical Node-to-Node Transition Matrix (All 25 Major Transitions)</h2>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span id="transition-match-count" style="font-size: 11px; color: var(--pbi-yellow);">25 transitions shown</span>
+              <input type="text" id="table-search" placeholder="Filter activities (e.g. X-Ray, CT, Triage)..." style="background:#141414; border:1px solid #333; color:#fff; padding:5px 10px; border-radius:4px; font-size:11px; width: 220px;" onkeyup="filterTransitionTable()">
+            </div>
           </div>
           <div class="pbi-table-wrapper" style="max-height: 480px; overflow-y: auto;">
             <table class="pbi-table" id="transition-full-table">
@@ -509,94 +568,289 @@
                   <th>Origin Activity (From)</th>
                   <th>Destination Activity (To)</th>
                   <th>Transition Volume</th>
-                  <th>Average Wait Time</th>
-                  <th>Median Duration</th>
-                  <th>Min Duration</th>
-                  <th>Max Duration</th>
-                  <th>Total Delay Hours</th>
+                  <th>Average Wait</th>
+                  <th>Median Wait</th>
+                  <th>Min Wait</th>
+                  <th>Max Wait</th>
+                  <th>Cumulative Delay</th>
+                  <th>Operational Status</th>
                 </tr>
               </thead>
               <tbody id="transition-table-body">
-                <!-- Dynamically populated or static baseline -->
-                <tr style="background: rgba(239, 68, 68, 0.12);">
+                <tr style="background: rgba(239, 68, 68, 0.18); font-weight: 600;">
                   <td><strong>X-Ray</strong></td>
-                  <td><strong>Triage</strong> (Loop-Back)</td>
-                  <td>791</td>
+                  <td><strong>Triage</strong></td>
+                  <td><span class="table-tag table-tag-red">791 cases</span></td>
                   <td style="color:#ef4444; font-weight:700;">33.4 min</td>
-                  <td>31.0 min</td>
-                  <td>2.0 min</td>
-                  <td>94.0 min</td>
-                  <td>439.7 hrs</td>
+                  <td>29.0 min</td>
+                  <td>6.0 min</td>
+                  <td>148.0 min</td>
+                  <td style="color:#fca5a5; font-weight:700;">440.0 hrs</td>
+                  <td><span class="table-tag table-tag-red">🚨 Critical Loop-Back</span></td>
                 </tr>
-                <tr>
-                  <td>Registration</td>
-                  <td>Triage</td>
-                  <td>5,000</td>
-                  <td>24.8 min</td>
-                  <td>23.0 min</td>
-                  <td>1.0 min</td>
-                  <td>85.0 min</td>
-                  <td>2,070.0 hrs</td>
-                </tr>
-                <tr>
-                  <td>Triage</td>
-                  <td>Doctor Consultation</td>
-                  <td>5,000</td>
-                  <td>30.2 min</td>
-                  <td>28.5 min</td>
-                  <td>2.0 min</td>
-                  <td>110.0 min</td>
-                  <td>2,513.3 hrs</td>
-                </tr>
-                <tr>
-                  <td>Doctor Consultation</td>
-                  <td>Blood Test</td>
-                  <td>2,431</td>
-                  <td>36.5 min</td>
-                  <td>34.0 min</td>
-                  <td>3.0 min</td>
-                  <td>120.0 min</td>
-                  <td>1,479.2 hrs</td>
-                </tr>
-                <tr>
-                  <td>Doctor Consultation</td>
-                  <td>X-Ray</td>
-                  <td>1,974</td>
-                  <td>35.8 min</td>
-                  <td>33.0 min</td>
-                  <td>3.0 min</td>
-                  <td>115.0 min</td>
-                  <td>1,177.8 hrs</td>
-                </tr>
-                <tr>
-                  <td>Observation</td>
-                  <td>Treatment</td>
-                  <td>2,243</td>
-                  <td>111.2 min</td>
+                <tr style="background: rgba(239, 68, 68, 0.08);">
+                  <td><strong>Observation</strong></td>
+                  <td><strong>Treatment</strong></td>
+                  <td>1,073</td>
+                  <td style="color:#f87171; font-weight:600;">111.2 min</td>
                   <td>105.0 min</td>
-                  <td>15.0 min</td>
-                  <td>340.0 min</td>
-                  <td>4,156.4 hrs</td>
+                  <td>30.0 min</td>
+                  <td>310.0 min</td>
+                  <td>1,988.6 hrs</td>
+                  <td><span class="table-tag table-tag-red">Longest Latency</span></td>
                 </tr>
                 <tr>
-                  <td>Treatment</td>
-                  <td>Discharge Planning</td>
-                  <td>3,485</td>
+                  <td><strong>Treatment</strong></td>
+                  <td><strong>Discharge Planning</strong></td>
+                  <td>1,168</td>
+                  <td>84.5 min</td>
+                  <td>79.5 min</td>
+                  <td>21.0 min</td>
+                  <td>274.0 min</td>
+                  <td>1,644.8 hrs</td>
+                  <td><span class="table-tag table-tag-yellow">High Latency</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Blood Test</strong></td>
+                  <td><strong>X-Ray</strong></td>
+                  <td>317</td>
+                  <td>82.0 min</td>
+                  <td>75.0 min</td>
+                  <td>14.0 min</td>
+                  <td>237.0 min</td>
+                  <td>433.4 hrs</td>
+                  <td><span class="table-tag table-tag-yellow">High Latency</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Blood Test</strong></td>
+                  <td><strong>Treatment</strong></td>
+                  <td>826</td>
+                  <td>78.6 min</td>
+                  <td>74.0 min</td>
+                  <td>22.0 min</td>
+                  <td>262.0 min</td>
+                  <td>1,081.6 hrs</td>
+                  <td><span class="table-tag table-tag-yellow">Lab Processing</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Treatment</strong></td>
+                  <td><strong>Reassessment</strong></td>
+                  <td>485</td>
+                  <td>71.6 min</td>
+                  <td>66.0 min</td>
+                  <td>19.0 min</td>
+                  <td>175.0 min</td>
+                  <td>578.9 hrs</td>
+                  <td><span class="table-tag table-tag-yellow">Clinical Recheck</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Treatment</strong></td>
+                  <td><strong>Medication Administration</strong></td>
+                  <td>1,971</td>
                   <td>69.2 min</td>
-                  <td>65.0 min</td>
-                  <td>10.0 min</td>
-                  <td>210.0 min</td>
-                  <td>4,019.4 hrs</td>
+                  <td>64.0 min</td>
+                  <td>14.0 min</td>
+                  <td>322.0 min</td>
+                  <td>2,273.4 hrs</td>
+                  <td><span class="table-tag table-tag-yellow">Pharmacy Queue</span></td>
                 </tr>
                 <tr>
-                  <td>Discharge Planning</td>
-                  <td>Discharge</td>
+                  <td><strong>Triage</strong></td>
+                  <td><strong>Treatment</strong></td>
+                  <td>289</td>
+                  <td>51.9 min</td>
+                  <td>48.0 min</td>
+                  <td>28.0 min</td>
+                  <td>196.0 min</td>
+                  <td>249.8 hrs</td>
+                  <td><span class="table-tag table-tag-green">Direct Pathway</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Ultrasound</strong></td>
+                  <td><strong>Treatment</strong></td>
+                  <td>434</td>
+                  <td>46.8 min</td>
+                  <td>42.5 min</td>
+                  <td>11.0 min</td>
+                  <td>127.0 min</td>
+                  <td>338.6 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Specialist Referral</strong></td>
+                  <td><strong>Discharge Planning</strong></td>
+                  <td>412</td>
+                  <td>38.8 min</td>
+                  <td>35.0 min</td>
+                  <td>9.0 min</td>
+                  <td>121.0 min</td>
+                  <td>266.5 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>X-Ray</strong></td>
+                  <td><strong>Treatment</strong></td>
+                  <td>492</td>
+                  <td>37.0 min</td>
+                  <td>33.0 min</td>
+                  <td>7.0 min</td>
+                  <td>119.0 min</td>
+                  <td>303.4 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Doctor Consultation</strong></td>
+                  <td><strong>Blood Test</strong></td>
+                  <td>1,280</td>
+                  <td>36.5 min</td>
+                  <td>33.0 min</td>
+                  <td>8.0 min</td>
+                  <td>148.0 min</td>
+                  <td>778.9 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Doctor Consultation</strong></td>
+                  <td><strong>Ultrasound</strong></td>
+                  <td>482</td>
+                  <td>36.2 min</td>
+                  <td>32.0 min</td>
+                  <td>9.0 min</td>
+                  <td>126.0 min</td>
+                  <td>290.6 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Discharge Planning</strong></td>
+                  <td><strong>Discharge</strong></td>
                   <td>3,281</td>
                   <td>35.8 min</td>
-                  <td>33.0 min</td>
+                  <td>32.0 min</td>
                   <td>4.0 min</td>
-                  <td>120.0 min</td>
-                  <td>1,957.5 hrs</td>
+                  <td>140.0 min</td>
+                  <td>1,955.0 hrs</td>
+                  <td><span class="table-tag table-tag-green">Discharge Gate</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Doctor Consultation</strong></td>
+                  <td><strong>X-Ray</strong></td>
+                  <td>1,031</td>
+                  <td>35.8 min</td>
+                  <td>32.0 min</td>
+                  <td>6.0 min</td>
+                  <td>177.0 min</td>
+                  <td>614.4 hrs</td>
+                  <td><span class="table-tag table-tag-green">Imaging Order</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Doctor Consultation</strong></td>
+                  <td><strong>Pain Assessment</strong></td>
+                  <td>761</td>
+                  <td>33.4 min</td>
+                  <td>30.0 min</td>
+                  <td>6.0 min</td>
+                  <td>135.0 min</td>
+                  <td>423.9 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Doctor Consultation</strong></td>
+                  <td><strong>CT Scan</strong></td>
+                  <td>317</td>
+                  <td>30.3 min</td>
+                  <td>25.0 min</td>
+                  <td>8.0 min</td>
+                  <td>110.0 min</td>
+                  <td>160.0 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Triage</strong></td>
+                  <td><strong>Doctor Consultation</strong></td>
+                  <td>5,000</td>
+                  <td>30.2 min</td>
+                  <td>26.0 min</td>
+                  <td>4.0 min</td>
+                  <td>185.0 min</td>
+                  <td>2,513.2 hrs</td>
+                  <td><span class="table-tag table-tag-green">Universal Triage</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Doctor Consultation</strong></td>
+                  <td><strong>ECG</strong></td>
+                  <td>314</td>
+                  <td>29.9 min</td>
+                  <td>26.5 min</td>
+                  <td>5.0 min</td>
+                  <td>115.0 min</td>
+                  <td>156.3 hrs</td>
+                  <td><span class="table-tag table-tag-green">Cardiac Check</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Reassessment</strong></td>
+                  <td><strong>Discharge Planning</strong></td>
+                  <td>384</td>
+                  <td>28.1 min</td>
+                  <td>23.0 min</td>
+                  <td>5.0 min</td>
+                  <td>93.0 min</td>
+                  <td>180.1 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Registration</strong></td>
+                  <td><strong>Triage</strong></td>
+                  <td>5,000</td>
+                  <td>24.8 min</td>
+                  <td>21.0 min</td>
+                  <td>2.0 min</td>
+                  <td>171.0 min</td>
+                  <td>2,070.0 hrs</td>
+                  <td><span class="table-tag table-tag-green">Intake Queue</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Medication Administration</strong></td>
+                  <td><strong>Discharge Planning</strong></td>
+                  <td>656</td>
+                  <td>24.2 min</td>
+                  <td>20.0 min</td>
+                  <td>4.0 min</td>
+                  <td>108.0 min</td>
+                  <td>265.0 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Medication Administration</strong></td>
+                  <td><strong>Reassessment</strong></td>
+                  <td>635</td>
+                  <td>22.7 min</td>
+                  <td>18.0 min</td>
+                  <td>3.0 min</td>
+                  <td>122.0 min</td>
+                  <td>240.2 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Medication Administration</strong></td>
+                  <td><strong>Specialist Referral</strong></td>
+                  <td>370</td>
+                  <td>21.5 min</td>
+                  <td>18.0 min</td>
+                  <td>3.0 min</td>
+                  <td>82.0 min</td>
+                  <td>132.8 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Pain Assessment</strong></td>
+                  <td><strong>Treatment</strong></td>
+                  <td>624</td>
+                  <td>19.1 min</td>
+                  <td>15.0 min</td>
+                  <td>1.0 min</td>
+                  <td>124.0 min</td>
+                  <td>198.8 hrs</td>
+                  <td><span class="table-tag table-tag-green">Routine</span></td>
                 </tr>
               </tbody>
             </table>
@@ -911,10 +1165,17 @@
     function filterTransitionTable() {
       const input = document.getElementById("table-search").value.toUpperCase();
       const rows = document.querySelectorAll("#transition-table-body tr");
+      let visible = 0;
       rows.forEach(row => {
         const text = row.innerText.toUpperCase();
-        row.style.display = text.indexOf(input) > -1 ? "" : "none";
+        const match = text.indexOf(input) > -1;
+        row.style.display = match ? "" : "none";
+        if (match) visible++;
       });
+      const counter = document.getElementById("transition-match-count");
+      if (counter) {
+        counter.textContent = `${visible} transition${visible === 1 ? '' : 's'} shown`;
+      }
     }
   </script>
 </body>
