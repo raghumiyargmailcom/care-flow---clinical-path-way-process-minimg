@@ -385,85 +385,110 @@
            PAGE 2: PATIENT FLOW & SPAGHETTI DIAGRAM (PM4Py Visual)
            ==================================================================== -->
       <div id="page-flow" class="report-page">
+        
+        <!-- Process Mining Metric Chips -->
+        <div class="banner-stats" style="margin-bottom: 4px;">
+          <div class="banner-chip">Events Ingested: <strong>43,173</strong></div>
+          <div class="banner-chip">Discovered Variants: <strong>32 Pathways</strong></div>
+          <div class="banner-chip">Direct Transitions: <strong>117 Edges</strong></div>
+          <div class="banner-chip">X-Ray → Triage Loopback: <strong style="color: #ef4444;">40.1% (791 Cases)</strong></div>
+          <div class="banner-chip">Petri Net Fitness: <strong style="color: #c084fc;">0.958</strong></div>
+        </div>
+
         <div class="pbi-visual-card">
           <div class="visual-title-bar">
-            <h2>🔀 Power Automate Process Mining Visual — As-Is vs To-Be Flow</h2>
+            <h2>🔀 Process Flow Visualizer — As-Is vs To-Be Simulation</h2>
             <div class="visual-controls">
-              <button class="pbi-btn active" id="btn-flow-asis" onclick="toggleProcessView('asis')">As-Is Spaghetti Flow (with Loop-Back)</button>
-              <button class="pbi-btn" id="btn-flow-tobe" onclick="toggleProcessView('tobe')">To-Be Streamlined Flow (Form Fixed)</button>
+              <button class="pbi-btn active" id="btn-view-interactive" onclick="switchProcessSubView('interactive')">Interactive Flow Map</button>
+              <button class="pbi-btn" id="btn-view-spaghetti" onclick="switchProcessSubView('spaghetti')">PM4Py Spaghetti Diagram</button>
+              <span style="color:#555; padding:0 4px;">|</span>
+              <button class="pbi-btn active" id="btn-flow-asis" onclick="toggleProcessView('asis')">As-Is (with Loop-Back)</button>
+              <button class="pbi-btn" id="btn-flow-tobe" onclick="toggleProcessView('tobe')">To-Be (Form Fixed)</button>
             </div>
           </div>
-          <div class="process-diagram-wrapper">
-            <svg class="svg-flow-container" viewBox="0 0 960 320">
+
+          <!-- Sub-View A: Interactive SVG Flow Canvas -->
+          <div id="subview-flow-interactive" class="process-diagram-wrapper">
+            <svg class="svg-flow-container" viewBox="0 0 960 360" style="height: 360px;">
               <defs>
-                <marker id="arrow-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <marker id="arrow-slate" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
                   <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
                 </marker>
-                <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
                   <path d="M 0 0 L 10 5 L 0 10 z" fill="#ef4444"/>
                 </marker>
               </defs>
 
               <!-- Node 1: Registration -->
-              <g transform="translate(30, 130)">
+              <g transform="translate(30, 150)">
                 <rect class="flow-node-box" width="125" height="52" fill="#064e3b" stroke="#10b981"/>
                 <text class="flow-node-title" x="62" y="27">Registration</text>
-                <text class="flow-node-stat" x="62" y="42">5,000 cases (100%)</text>
+                <text class="flow-node-stat" x="62" y="42" id="svg-reg-stat">5,000 cases (100%)</text>
               </g>
 
               <!-- Node 2: Triage -->
-              <g transform="translate(210, 130)">
+              <g transform="translate(210, 150)">
                 <rect class="flow-node-box" width="125" height="52" fill="#78350f" stroke="#eab308"/>
                 <text class="flow-node-title" x="62" y="27">Initial Triage</text>
                 <text class="flow-node-stat" x="62" y="42" id="svg-triage-stat">5,791 visits (Loop)</text>
               </g>
 
               <!-- Node 3: Doctor Consultation -->
-              <g transform="translate(390, 130)">
+              <g transform="translate(390, 150)">
                 <rect class="flow-node-box" width="145" height="52" fill="#1e3a8a" stroke="#3b82f6"/>
                 <text class="flow-node-title" x="72" y="27">Doctor Consultation</text>
                 <text class="flow-node-stat" x="72" y="42">Avg wait: 30.2 min</text>
               </g>
 
               <!-- Node 4A: X-Ray Diagnostic -->
-              <g transform="translate(595, 50)">
+              <g transform="translate(595, 70)">
                 <rect class="flow-node-box" width="135" height="52" fill="#4c1d95" stroke="#a855f7"/>
                 <text class="flow-node-title" x="67" y="27">X-Ray Diagnostic</text>
-                <text class="flow-node-stat" x="67" y="42">1,974 patients</text>
+                <text class="flow-node-stat" x="67" y="42" id="svg-xray-stat">1,974 patients</text>
               </g>
 
               <!-- Node 4B: Blood Test / Treatment -->
-              <g transform="translate(595, 210)">
+              <g transform="translate(595, 230)">
                 <rect class="flow-node-box" width="135" height="52" fill="#1e3a8a" stroke="#3b82f6"/>
                 <text class="flow-node-title" x="67" y="27">Treatment / Meds</text>
                 <text class="flow-node-stat" x="67" y="42">3,892 patients</text>
               </g>
 
               <!-- Node 5: Disposition -->
-              <g transform="translate(790, 130)">
+              <g transform="translate(790, 150)">
                 <rect class="flow-node-box" width="135" height="52" fill="#881337" stroke="#f43f5e"/>
                 <text class="flow-node-title" x="67" y="27">Patient Disposition</text>
                 <text class="flow-node-stat" x="67" y="42">Discharge / Admitted</text>
               </g>
 
-              <!-- Regular Edges -->
-              <path class="flow-edge-regular" d="M 155 156 L 205 156"/>
-              <path class="flow-edge-regular" d="M 335 156 L 385 156"/>
-              <path class="flow-edge-regular" d="M 490 130 L 590 85"/>
-              <path class="flow-edge-regular" d="M 490 182 L 590 225"/>
-              <path class="flow-edge-regular" d="M 662 102 L 662 205"/>
-              <path class="flow-edge-regular" d="M 730 225 L 785 170"/>
+              <!-- Regular Edges (Clean Coordinates) -->
+              <path class="flow-edge-regular" d="M 155 176 L 205 176"/>
+              <path class="flow-edge-regular" d="M 335 176 L 385 176"/>
+              <path class="flow-edge-regular" d="M 535 165 L 590 105"/>
+              <path class="flow-edge-regular" d="M 535 187 L 590 245"/>
+              <path class="flow-edge-regular" d="M 662 122 L 662 225"/>
+              <path class="flow-edge-regular" d="M 730 245 L 785 190"/>
 
-              <!-- Bottleneck Loopback Arc: X-Ray -> Triage -->
+              <!-- Bottleneck Loopback Arc: X-Ray -> Triage (Properly In-Bounds) -->
               <g id="svg-loopback-arc">
-                <path class="flow-edge-loopback" d="M 610 50 C 490 -25, 330 -25, 275 125"/>
-                <rect class="edge-badge-rect" x="350" y="8" width="200" height="24"/>
-                <text class="edge-badge-text" x="450" y="24">⚠️ 40.1% Sent Back to Triage</text>
+                <path class="flow-edge-loopback" d="M 662 70 C 530 25, 340 25, 272 145"/>
+                <rect class="edge-badge-rect" x="375" y="14" width="220" height="26"/>
+                <text class="edge-badge-text" x="485" y="31">🚨 40.1% Sent Back to Triage (Missing Paperwork)</text>
               </g>
             </svg>
           </div>
+
+          <!-- Sub-View B: PM4Py Discovered Spaghetti Diagram -->
+          <div id="subview-flow-spaghetti" class="process-diagram-wrapper" style="display: none; text-align: center; background: #0c0c0c;">
+            <div style="margin-bottom: 10px; font-size: 11px; color: var(--pbi-text-secondary); display: flex; justify-content: space-between; align-items: center;">
+              <span>Discovered As-Is Process Map (Inductive Miner & Directly-Follows Graph from EHR Event Stream)</span>
+              <a href="images/spaghetti_diagram.png" target="_blank" style="color: var(--pbi-yellow); text-decoration: none;">🔍 Open High-Res Fullscreen ↗</a>
+            </div>
+            <img src="images/spaghetti_diagram.png" alt="CareFlow PM4Py Spaghetti Diagram" style="max-width: 100%; height: auto; max-height: 480px; border-radius: 4px; border: 1px solid #333; cursor: zoom-in;" onclick="window.open(this.src)"/>
+          </div>
+
           <div style="margin-top: 14px; font-size: 12px; color: var(--pbi-text-secondary); line-height: 1.6;">
-            <strong>Process Mining Takeaway:</strong> In the <em>As-Is</em> state, when an X-Ray is ordered, 791 patients are sent backwards in the sequence from Radiology to Triage because intake forms were missing crucial clinical history. Once the intake protocol is rectified, patient flow proceeds cleanly into Treatment and Disposition without loop-backs.
+            <strong>Algorithmic Process Mining Takeaway:</strong> In the <em>As-Is</em> state, when an X-Ray is ordered, 791 patients (40.1% of all imaging orders) are diverted backwards into Triage because requisition paperwork lacked clinical history. Rectifying this intake paperwork eliminates the loopback, saving <strong>20.0 minutes per visit</strong> and recovering <strong>263.7 hours</strong> of physician capacity annually.
           </div>
         </div>
       </div>
@@ -779,6 +804,25 @@
       applySlicers();
     }
 
+    function switchProcessSubView(subview) {
+      const interactive = document.getElementById("subview-flow-interactive");
+      const spaghetti = document.getElementById("subview-flow-spaghetti");
+      const btnInteractive = document.getElementById("btn-view-interactive");
+      const btnSpaghetti = document.getElementById("btn-view-spaghetti");
+
+      if (subview === "spaghetti") {
+        if (interactive) interactive.style.display = "none";
+        if (spaghetti) spaghetti.style.display = "block";
+        if (btnSpaghetti) btnSpaghetti.classList.add("active");
+        if (btnInteractive) btnInteractive.classList.remove("active");
+      } else {
+        if (interactive) interactive.style.display = "block";
+        if (spaghetti) spaghetti.style.display = "none";
+        if (btnInteractive) btnInteractive.classList.add("active");
+        if (btnSpaghetti) btnSpaghetti.classList.remove("active");
+      }
+    }
+
     function toggleProcessView(mode) {
       currentFlowView = mode;
       const loopArc = document.getElementById("svg-loopback-arc");
@@ -839,6 +883,14 @@
       document.getElementById("kpi-total-cases").textContent = count.toLocaleString();
       document.getElementById("kpi-avg-los").textContent = los;
       document.getElementById("kpi-compliance-rate").textContent = compliance;
+
+      if (document.getElementById("svg-reg-stat")) {
+        document.getElementById("svg-reg-stat").textContent = count.toLocaleString() + " cases";
+      }
+      if (document.getElementById("svg-xray-stat")) {
+        const xrayCount = Math.round(count * 0.395);
+        document.getElementById("svg-xray-stat").textContent = xrayCount.toLocaleString() + " patients";
+      }
     }
 
     function resetAllSlicers() {
