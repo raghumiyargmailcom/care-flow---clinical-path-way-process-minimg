@@ -36,7 +36,9 @@ ActivityReference (Activity_Name) ── 1 : M (Single) ────► EventLog
 
 ---
 
-## 📐 Enterprise DAX Measures
+## 📐 Enterprise DAX Measures (Verified for Power BI Desktop & DirectQuery)
+
+> **Important Schema Note:** The process mining transition table uses columns `source_activity` and `target_activity` (not `from_activity`/`to_activity`). The measures below use these verified columns and DirectQuery-safe syntax.
 
 ```dax
 // 1. Average Length of Stay in Minutes
@@ -55,40 +57,54 @@ Four_Hour_Target_Compliance =
 DIVIDE(
     CALCULATE(
         COUNTROWS('PatientCases'), 
-        'PatientCases'[Total_Length_of_Stay_Minutes] <= 240
+        FILTER('PatientCases', 'PatientCases'[Total_Length_of_Stay_Minutes] <= 240)
     ),
     COUNTROWS('PatientCases'),
     0
 )
 
 // 4. Critical Operational Bottleneck: X-Ray to Triage Loop-Back Rate (%)
+// Schema Verified: Uses 'source_activity' and 'target_activity'
 XRay_Triage_Loopback_Rate = 
 DIVIDE(
     CALCULATE(
         COUNTROWS('EventTransitions'),
-        'EventTransitions'[from_activity] = "X-Ray",
-        'EventTransitions'[to_activity] = "Triage"
+        FILTER('EventTransitions', 'EventTransitions'[source_activity] = "X-Ray" && 'EventTransitions'[target_activity] = "Triage")
     ),
     CALCULATE(
         COUNTROWS('EventTransitions'),
-        'EventTransitions'[from_activity] = "X-Ray"
+        FILTER('EventTransitions', 'EventTransitions'[source_activity] = "X-Ray")
     ),
     0
 )
 
-// 5. Cumulative Clinical Capacity Saved by Form Fix (Hours)
+// 5. BigQuery DirectQuery Version (when referencing fct_activity_transitions)
+BQ_XRay_Loopback_Rate = 
+DIVIDE(
+    CALCULATE(
+        COUNTROWS('fct_activity_transitions'),
+        'fct_activity_transitions'[source_activity] = "X-Ray",
+        'fct_activity_transitions'[target_activity] = "Triage"
+    ),
+    CALCULATE(
+        COUNTROWS('fct_activity_transitions'),
+        'fct_activity_transitions'[source_activity] = "X-Ray"
+    ),
+    0
+)
+
+// 6. Cumulative Clinical Capacity Saved by Form Fix (Hours)
 Annual_Intake_Capacity_Saved_Hours = 
 DIVIDE(
     CALCULATE(
         COUNTROWS('EventTransitions'),
-        'EventTransitions'[from_activity] = "X-Ray",
-        'EventTransitions'[to_activity] = "Triage"
+        FILTER('EventTransitions', 'EventTransitions'[source_activity] = "X-Ray" && 'EventTransitions'[target_activity] = "Triage")
     ) * 20.0, 
     60,
     0
 )
 
-// 6. Conformance Rate (% of Strictly Compliant Paths)
+// 7. Conformance Rate (% of Mandated Paths)
 Clinical_Conformance_Rate = 
 DIVIDE(
     CALCULATE(

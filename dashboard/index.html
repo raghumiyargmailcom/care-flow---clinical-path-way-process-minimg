@@ -660,8 +660,9 @@
           <div class="pbi-visual-card">
             <div class="visual-title-bar">
               <h2>📐 Ready-to-Use Power BI DAX Measures</h2>
+              <button class="pbi-btn" onclick="navigator.clipboard.writeText(document.getElementById('dax-code-content').innerText); alert('Copied DAX measures to clipboard!');">📋 Copy DAX</button>
             </div>
-            <div class="dax-code-block">
+            <div class="dax-code-block" id="dax-code-content">
 <span class="dax-comment">// 1. Average Length of Stay in Minutes</span>
 <span class="dax-keyword">Avg_LOS_Minutes</span> = 
 <span class="dax-function">AVERAGEX</span>(
@@ -674,23 +675,37 @@
 <span class="dax-function">DIVIDE</span>(
     <span class="dax-function">CALCULATE</span>(
         <span class="dax-function">COUNTROWS</span>('PatientCases'), 
-        'PatientCases'[Total_Length_of_Stay_Minutes] <= 240
+        <span class="dax-function">FILTER</span>('PatientCases', 'PatientCases'[Total_Length_of_Stay_Minutes] <= 240)
     ),
     <span class="dax-function">COUNTROWS</span>('PatientCases'),
     0
 )
 
-<span class="dax-comment">// 3. X-Ray to Triage Loopback Rate (%)</span>
+<span class="dax-comment">// 3. X-Ray to Triage Loopback Rate (%) — Schema: source_activity, target_activity</span>
 <span class="dax-keyword">XRay_Triage_Loopback_Rate</span> = 
 <span class="dax-function">DIVIDE</span>(
     <span class="dax-function">CALCULATE</span>(
         <span class="dax-function">COUNTROWS</span>('EventTransitions'),
-        'EventTransitions'[from_activity] = "X-Ray",
-        'EventTransitions'[to_activity] = "Triage"
+        <span class="dax-function">FILTER</span>('EventTransitions', 'EventTransitions'[source_activity] = "X-Ray" && 'EventTransitions'[target_activity] = "Triage")
     ),
     <span class="dax-function">CALCULATE</span>(
         <span class="dax-function">COUNTROWS</span>('EventTransitions'),
-        'EventTransitions'[from_activity] = "X-Ray"
+        <span class="dax-function">FILTER</span>('EventTransitions', 'EventTransitions'[source_activity] = "X-Ray")
+    ),
+    0
+)
+
+<span class="dax-comment">// 4. BigQuery DirectQuery fct_activity_transitions</span>
+<span class="dax-keyword">BQ_XRay_Loopback_Rate</span> = 
+<span class="dax-function">DIVIDE</span>(
+    <span class="dax-function">CALCULATE</span>(
+        <span class="dax-function">COUNTROWS</span>('fct_activity_transitions'),
+        'fct_activity_transitions'[source_activity] = "X-Ray",
+        'fct_activity_transitions'[target_activity] = "Triage"
+    ),
+    <span class="dax-function">CALCULATE</span>(
+        <span class="dax-function">COUNTROWS</span>('fct_activity_transitions'),
+        'fct_activity_transitions'[source_activity] = "X-Ray"
     ),
     0
 )
